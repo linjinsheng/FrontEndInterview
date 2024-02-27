@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+class Stack{
+    constructor(){
+        this.items = []
+    }
+    push(ele){ //入栈
+        this.items.push(ele)
+    }
+    pop(){ //出栈
+        return this.items.pop()
+    }
+    peek(){ //返回栈顶 元素
+        return this.items[this.items.length-1]
+    }
+    isEmpty(){ //判断空
+        return this.items.length ==0
+    }
+    size(){ //返回栈元素个数
+        return this.items.length
+    }
+    clear(){ //清空栈
+        this.items.length = 0
+    }
+}
+const stack = new Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+console.log(stack)
+console.log(stack.peek())
+</script>
+</body>
+</html>
