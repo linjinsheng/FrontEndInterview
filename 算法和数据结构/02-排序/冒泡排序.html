@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//  冒泡排序：
+function bubbleSort(arr){
+    for(let i = 0; i < arr.length; i++){
+        for(let j = i + 1; j < arr.length; j++){
+            if(arr[j] < arr[i]){
+                var temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            } 
+        }
+    }
+}
+var  arr = [29,45,51,72,68,97,10];
+if(arr.length > 1){
+    bubbleSort(arr);
+}
+console.log('冒泡排序:', arr);
+</script>   
+</body>
+</html>

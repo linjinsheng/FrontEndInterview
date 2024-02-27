@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//快速排序：
+function quickSort(arr, left, right){
+    if(left >= right)return;
+    var i = left;
+    var j = right;
+    var key = arr[left];
+
+    while(i < j){
+        while(i < j && arr[j] >= key)j--;
+        if(i < j){
+            arr[i] = arr[j];
+            i++;
+        }
+        while(i < j && arr[i] < key)i++;
+        if(i < j){
+            arr[j] = arr[i];
+            j--;
+        }
+    }
+    arr[i] = key;
+    quickSort(arr, left, i - 1);
+    quickSort(arr, i + 1, right);
+}
+var  arr = [29,45,51,72,68,97,10]
+const left = 0;
+const right = arr.length - 1;
+if(arr.length > 1){
+    quickSort(arr, left, right);
+}
+quickSort(arr, left, right);
+console.log('排序后:', arr)
+</script>   
+</body>
+</html>
