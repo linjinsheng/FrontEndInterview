@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//构造函数继承
+function Parent(gender){
+    this.info={
+        name:"zhangsan",
+        age:20,
+        gender:gender
+    }
+}
+function Child(gender){
+    this.test = "ok" //子类属性
+    //this-->Parent
+    Parent.call(this,gender) //继承的体现
+}
+let child1 = new Child('nan')
+console.log(1,child1.info)
+
+let child2 = new Child('nan')
+console.log(1,child2.info)
+</script>  
+</body>
+</html>

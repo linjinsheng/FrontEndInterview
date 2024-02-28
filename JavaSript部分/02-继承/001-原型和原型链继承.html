@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//原型和原型链继承
+function Parent(){
+    this.isShow = true
+    this.info = {
+        name: "zhangsan",
+        age:18
+    }
+}
+Parent.prototype.getInfo = function(){
+    console.log(1,this.info,this.isShow)
+}
+function child(){}
+//父类的实例  赋值给子类的原型
+child.prototype = new Parent()
+let child1 = new child()
+console.log(child1.info.name) //zhangsan
+child1.getInfo()
+</script>  
+</body>
+</html>

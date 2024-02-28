@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function createPerson(name,age){
+        var person = new Object()
+        person.name = name
+        person.age = age
+        person.say = function(){
+            console.log(this.name)
+        }
+        return person
+    }
+    var p1 = createPerson("zhangsan",18)
+    var p2 = createPerson("lisi",19)
+    console.log(1,p1,p2)
+    console.log(2,p1===p2)
+</script> 
+</body>
+</html>

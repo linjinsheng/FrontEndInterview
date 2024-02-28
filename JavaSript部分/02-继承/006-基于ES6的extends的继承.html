@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//es6继承
+class Parent {
+    constructor(name){
+        this.name = name;
+        this.arr = [1,2,3]
+    }
+}
+class Child extends Parent{
+    constructor(){
+        super('父类')
+        this.name = "小红"
+    }
+}
+let array1 = new Child();
+let array2 = new Child()
+console.log(array1,array2)
+</script>  
+</body>
+</html>

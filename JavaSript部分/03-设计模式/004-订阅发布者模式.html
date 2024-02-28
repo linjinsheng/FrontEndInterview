@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//收集订阅：
+class Dep{
+    constructor(){
+        this.subs = []
+    }
+    //向subs中 追加订阅者
+    addSub(watcher){   
+        this.subs.push(watcher)
+    }
+    notify(){
+       this.subs.forEach(watcher=>{
+           watcher.update()
+       }) 
+    }
+}
+//订阅者
+class Watcher{
+    constructor(cb){
+        this.cb = cb
+    }
+    update(){
+        this.cb()
+    }
+}
+const w1 = new Watcher(()=>{
+    console.log("我是1好订阅者")
+})
+w1.update()
+const w2 = new Watcher(()=>{
+    console.log("我是2好订阅者")
+})
+w2.update()
+
+const dep = new Dep()
+dep.addSub(w1)
+dep.addSub(w2)
+dep.notify()
+</script>   
+</body>
+</html>

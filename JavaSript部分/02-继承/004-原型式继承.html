@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//原型式继承
+ //在构造函数A 内部创建一个临时的构造函数B
+ //A的参数是一个对象，将A的参数绑定在B的原型上，返回一个B的实例
+ function createObject(obj){
+     //1.创建一个临时的构造函数
+     function Fun(){}
+     //2.obj绑定到Fun的原型上
+     Fun.prototype = obj
+     //3.返回Fun的一个实例
+     return new Fun()
+ }
+ let person= {
+     name:"zhangsan",
+     age:18,
+     love:['唱歌','跳舞'],
+     showInfo(){
+         console.log(1,this.name)
+     }
+ }
+ //测试：
+ let child1 = createObject(person)
+ child1.name = "lisi"
+ console.log(2,child1)
+ child1.love.push('篮球')
+ console.log(3,person.love)
+</script>  
+</body>
+</html>
