@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')  
+    function compareVersion(version1, version2){
+      //  将版本号拆分成数组
+      var v1 = version1.split('.');
+      var v2 = version2.split('.');
+
+      //  遍历数组进行逐段比较
+      for(var i = 0; i < Math.max(v1.length, v2.length); i++){
+        var num1 = parseInt(v1[i] || 0);
+        var num2 = parseInt(v2[i] || 0);
+        if(num1 < num2){
+          return -1;  // 版本1小于版本2
+        }else if(num1 > num2){
+          return 1;   // 版本1大于版本2
+        }
+      }
+      return 0; // 版本1等于版本2
+    }
+    // 测试示例
+    console.log(compareVersion("1.0.0","1.2.3"));
+    console.log(compareVersion("2.1.0","1.5.5"));
+    console.log(compareVersion("2.0.0","2.0.0"));
+    console.log(compareVersion("2.1.0","2.3.0"));
+    </script>
+  </body>
+</html>

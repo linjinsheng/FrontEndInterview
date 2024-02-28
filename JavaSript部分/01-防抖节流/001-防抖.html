@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+
+<script>
+   //   防抖:指连续触发事件但是在设定的一段时间内只执行最后一次
+   //   应用场景:搜索框搜索输入,文本编辑器实时保存
+   function debounce(fn,delay){
+       let timerId = null
+       return function(){
+           if(timerId !== null){
+               clearTimeout(timerId)
+           }
+           timerId = setTimeout(fn,delay)
+       }
+   }
+
+   function showTop(){
+       var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+       console.log("滚动条位置:"+scrollTop)
+   } 
+   window.onscroll = debounce(showTop,1000) 
+</script>
+</body>
+</html>

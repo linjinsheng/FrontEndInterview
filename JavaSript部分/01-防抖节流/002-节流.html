@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+<div>111</div>
+
+<script>
+   //   节流:指连续触发事件但是在设定的一段时间内只执行一次函数
+   //   应用场景:高频事件:快速点击、鼠标滑动、resize事件、scroll事件;下拉加载;视频播放记录时间;  
+   function throttle(fn, delay){
+       let timerId = null;
+       return function(){
+           if(timerId !== null)return;
+           timerId = setTimeout(()=>{
+               fn();
+               timerId = null;
+           },delay)
+       }
+   }
+   function showTop(){
+       var scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+       console.log("滚动条位置:"+scrollTop)
+       //定位元素  计时器 其他业务逻辑
+   }   
+   window.onscroll = throttle(showTop,1000) 
+</script>
+</body>
+</html>

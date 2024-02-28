@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>111</div>
+<script>
+/*
+1、返回一个新函数
+2、递归收集所有后置参数
+3、最后调用所有普通函数
+*/ 
+function add(a, b, c, d){
+    return a + b + c + d;
+}
+
+function curry(fn){
+    return function curried(...args){
+        if(args.length >= fn.length){
+            //  收集全,调用当前函数即可 this指向window
+            return fn.apply(this, args);
+        } else {
+            return function(...moreArgs){
+                //  没有收集全,需要合并当前的参数,递归调用当前函数
+                return curried.apply(this, args.concat(moreArgs))
+            }
+        }
+    }
+}
+
+const curriedAdd = curry(add);
+console.log(curriedAdd(1)(2)(3)(4));
+console.log(curriedAdd(1)(2,3)(4));
+</script>
+</body>
+</html>
+
