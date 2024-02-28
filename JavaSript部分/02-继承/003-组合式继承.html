@@ -9,6 +9,15 @@
 <body>
 <script>
 //组合式继承
+/*
+    原型链继承和构造函数继承组合
+    优点: 
+    1、不存在引用属性共享的问题
+    2、子类可向父类传递参数
+    
+    缺点:
+    子类原型上,多余了一份父类的实例
+*/
 function Parent(gender){
     this.info = {
         name:"zhangsan",

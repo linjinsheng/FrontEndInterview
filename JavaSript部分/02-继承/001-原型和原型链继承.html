@@ -17,7 +17,6 @@
     缺点:
     1、原型的属性是共享的,修改一个属性的,所有的属性都改变;
     2、创建子类实例,无法向父类传递参数
-
 */ 
 
 function Parent(){
@@ -31,7 +30,7 @@ Parent.prototype.getInfo = function(){
     console.log(1,this.info,this.isShow)
 }
 function child(){}
-//父类的实例  赋值给子类的原型
+//父类的实例赋值给子类的原型
 child.prototype = new Parent()
 let child1 = new child()
 console.log(child1.info.name) //zhangsan
