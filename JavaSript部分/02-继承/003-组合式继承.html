@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//组合式继承
+/*
+    原型链继承和构造函数继承组合
+    优点: 
+    1、不存在引用属性共享的问题
+    2、子类可向父类传递参数
+    
+    缺点:
+    子类原型上,多余了一份父类的实例
+*/
+function Parent(gender){
+    this.info = {
+        name:"zhangsan",
+        age:18,
+        gender:gender
+    }
+}
+Parent.prototype.getInfo = function(){
+    console.log(1,this.info)
+}
+function Child(gender){
+    //构造函数继承
+    Parent.call(this,gender)
+}
+Child.prototype = new Parent()
+let child1 = new Child("nv")
+child1.getInfo()
+</script>  
+</body>
+</html>

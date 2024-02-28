@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+    输入：date = "2019-01-09" 输出：9
+    输入：date = "2004-03-01" 输出：61
+
+    你已经有一个工具函数可以直接使用  ： isLeapYear(year)
+    如果输入的数字符合闰年，返回true，反则返回false
+    */
+
+    function dayOfyear(date){
+      var dateArr = date.split("-");
+      var year = dateArr[0]*1;
+      var month = dateArr[1]*1;
+      var day = dateArr[2]*1;
+      var monthArr = [31,28,31,30,31,30,31,31,30,31,30,31];
+      var isLeap= isLeapYear(year); 
+      var sum = 0;
+      if(month === 1){
+        sum = day;
+        return sum;
+      }else{
+        for(var i =0; i < month-1; i++){
+            sum = sum + monthArr[i];
+        }
+        sum = sum + day;
+        if(isLeap && month > 2)sum += 1;
+      }
+      return sum;
+    }
+
+    function isLeapYear(year){
+      return year%4 === 0 && year %100 !== 0 || year % 400 === 0;
+    }
+
+    var date = "2004-03-01";
+    var dayNum = dayOfyear(date);
+    console.log(dayNum);
+    </script>
+  </body>
+</html>

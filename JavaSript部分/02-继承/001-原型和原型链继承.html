@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//原型和原型链继承
+/*
+    优点:
+    1、实例是子类的实例,也是父类的实例;
+    2、子类可以调用父类的属性和方法
+    
+    缺点:
+    1、原型的属性是共享的,修改一个属性的,所有的属性都改变;
+    2、创建子类实例,无法向父类传递参数
+*/ 
+
+function Parent(){
+    this.isShow = true
+    this.info = {
+        name: "zhangsan",
+        age:18
+    }
+}
+Parent.prototype.getInfo = function(){
+    console.log(1,this.info,this.isShow)
+}
+function child(){}
+//父类的实例赋值给子类的原型
+child.prototype = new Parent()
+let child1 = new child()
+console.log(child1.info.name) //zhangsan
+child1.getInfo()
+</script>  
+</body>
+</html>

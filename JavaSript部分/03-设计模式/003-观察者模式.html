@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//观察者模式：
+var targetObj1 = { name:"小李"}
+var targetObj2 = { name:"小刘"}
+//值改变时候的 处理函数
+function observer(oldVal,newVal){
+    //其他的业务逻辑....
+    targetObj2.name = newVal
+    console.log("t2值"+newVal)
+}
+//定义 name属性  set 和 get方法
+Object.defineProperty(targetObj1,"name",{
+    enumerable:true,//当前属性是否可循环
+    configurable:true, //当前属性是否可被设置
+    get:function(){
+        return name
+    },
+    set:function(val){
+        observer(name,val)
+        name = val
+    }
+})
+targetObj1.name = "zhangsan"
+console.log(targetObj2.name)
+targetObj1.name = "wangwu"
+console.log(targetObj2.name)
+</script>   
+</body>
+</html>

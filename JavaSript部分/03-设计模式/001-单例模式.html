@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//单例模式：
+function Animal(){
+    this.name = "cat"
+    this.age = 3
+}
+// let a1 = new Animal() //开辟空间
+// let a2 = new Animal() //开辟空间
+// console.log(a1===a2) // false
+let instance = null //存放实例对象
+function single(){
+    // 如果对象存在，返回，不存在 则创建
+    if(!instance){
+        instance = new Animal()
+        return instance
+    }
+    return instance
+}
+let a1 = new single();
+let a2 = new single();
+console.log(a1===a2);       // true
+</script>  
+</body>
+</html>

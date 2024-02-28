@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/*
+    JSON: 数据交换方式;
+    JSON.stringify(): 将对象、数组转换成字符串;
+    JSON.parse():将字符串转成JSON对象
+*/
+
+function deepCopy(obj){
+    return JSON.parse(JSON.stringify(obj));
+}
+
+a = {
+    name:"zhangsan",
+    people:{
+        name:"lisi"
+    }
+}
+b = deepCopy(a)
+b.name = "laoliu"
+b.people.name = "wangwu"
+console.log(2,a,b)
+
+</script>
+</body>
+</html>

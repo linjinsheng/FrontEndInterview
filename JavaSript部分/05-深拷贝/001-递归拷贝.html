@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//  递归拷贝
+function deepCopy(obj){
+    let objClone = Array.isArray(obj) ? [] : {};
+    if(obj && typeof obj === 'object'){
+        for(var key in obj){
+            if(obj.hasOwnProperty(key)){
+                if(obj[key] && typeof obj[key] === 'object'){
+                    objClone[key]= deepCopy(obj[key]);
+                }else{
+                    objClone[key] = obj[key];
+                }
+            }
+        }
+    }
+    return objClone;
+}
+
+let a = [[11,22],2,3,4]
+b = deepCopy(a)  //为b开辟了 内存
+console.log(3,a,b)
+a[0] = [111,222];
+console.log(4,a,b)
+</script>
+</body>
+</html>
