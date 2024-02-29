@@ -12,7 +12,9 @@
 var str = "rac1ecar"
 function test(str){
    let newString = str.toLowerCase()
-   console.log(1,newString) 
+   console.log(1,newString)
+   var arr = newString.split('');
+   console.log(Object.prototype.toString.call(arr));  // [object Array]
    //转换成数组，然后倒序，再转化成字符串
    let reverStr = newString.split('').reverse().join('')
    console.log(2,reverStr)
