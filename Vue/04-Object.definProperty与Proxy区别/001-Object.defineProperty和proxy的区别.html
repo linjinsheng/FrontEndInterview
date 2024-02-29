@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+      Object.defineProperty和proxy的区别
+      Object.defineProperty 
+      1、Vue在实例初始化时遍历data中的属性,并使用defineProperty把这些属性全部转为getter/setter.
+        当跟踪数据发生变化时,setter会被自动调用;
+      2、添加或删除对象的属性时,vue无法检测到;
+      3、无法监控到数组下标和长度的变化.
+      
+      proxy
+      1、定义基本操作的自定义行为(如属性查找、赋值、枚举、函数调用);
+      2、Proxy直接代理整个对象而非对象属性,只需做一层代理就可以监听同级结构下的所有属性变化,包括新增属性和删除属性;
+      3、Proxy可以监听数组的变化.
+
+     */
+    
+    </script>
+  </body>
+</html>
