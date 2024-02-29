@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+        Vue在更新DOM时是异步执行的，在修改数据后，视图不会立刻更新，
+        而是等同一事件循环中的所有数据变化完成之后，再统一进行视图更新。
+        所以修改完数据，立即在方法中获取DOM，获取的仍然是未修改的DOM。 
+ 
+        $nextTick的作用是：该方法中的代码会在当前渲染完成后执行，就解决了异步渲染获取不到更新后DOM的问题了。 
+        $nextTick的原理：$nextTick本质是返回一个Promise 
+        应用场景：在钩子函数created()里面想要获取操作Dom，把操作DOM的方法放在$nextTick中
+    */ 
+    </script>
+  </body>
+</html>

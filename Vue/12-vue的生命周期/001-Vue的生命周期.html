@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+    概念: 从开始创建、初始化数据、编译模版、挂载DOM——>渲染、更新——>渲染、卸载等一系列操作
+    生命周期                this.$el(元素)     this.$msg(数据)
+    beforeCreate           undefined         undefined
+    created                undefined         有了
+    beforeMount            undefined         有了
+    mounted                有了               有了
+    beforeUpdate           ——————————    
+    updated                —————————— 
+    doforeDestroy          this仍能获取实例,销毁定时器
+    destroyed              所有监听器移除,所有实例销毁
+    actived                keep-alive组件激活时使用
+    deactived              keep-alive组件停用时使用
+     */
+    </script>
+  </body>
+</html>

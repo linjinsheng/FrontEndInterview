@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+      1、当一个Vue实例创建时,Vue会遍历data中的属性,用Object.defineProperty(vue3.0用proxy)将它们转为getter/setter,
+        并且内部跟踪相关依赖,在属性被访问和修改时通知变化;
+      2、每个组件实例都有响应的watcher程序实例,它会在组件渲染的过程中把属性记录为依赖;
+      3、依赖项的setter被调用时,会通知watcher重新计算,从而使它关联的组件得以更新.
+     */
+    
+    </script>
+  </body>
+</html>

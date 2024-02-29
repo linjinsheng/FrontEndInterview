@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+    https://blog.csdn.net/lwg112233/article/details/121004482
+    vue2和vue3区别
+      1、vue2和vue3双向数据绑定原理发生了改变;
+         vue2的Object.defineProperty():后面更新属性，不能进行劫持，导致数据更新，视图不更新
+         vue3的new Proxy()对元素进行劫持,更新数据,视图立刻显示变化;
+      
+      2、$set: 在vue3中没有
+
+      3、生命周期不同：
+          vue2                vue3
+          beforeCreate          setup
+          created               setup
+          beforeMount           onBeforeMount
+          mounted               on....
+          beforeUpdate          on....
+          updated               on...
+          beforeDestroy         on... 
+          destroyed             on...
+          activated             on... 
+          deactivated           on...
+
+      4、父子传值不同：
+          vue2  父传子 ---》props 
+                子传夫: --> this.$emit("事件"，参数)
+          vue3  父传子 ---》props
+                子传父： defineEmits(['事件名称'])
+
+      5、api选型不同：
+          Vue2使用选项类型API（Options API）：用属性来分割组件
+          Vue3合成型API（Composition API）：用方法来分割组件
+
+      6、根节点不同
+        vue3 支持多根节点  
+        vue2 单根节点
+
+      7、数据定义：
+        vue2：把数据放在data中;
+        vue3:使用setup方法，在组件初始化构造的时候触发;引入reactive声明数据为响应性数据;
+             使用setup()方法来返回我们的响应性数据，template可以获取响应性数据
+     */
+    </script>
+  </body>
+</html>

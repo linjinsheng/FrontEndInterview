@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+      1、根据树的层次划分,只是比较同一层级;
+      2、对比节点本身,判断是否是同一节点,如果不是相同节点,则删除该节点重新创建进行替换;
+      3、如果是相同节点,进行patchNode,判断如何对该节点的子节点进行处理,先判断一方有子节点一方没有子节点的情况
+      (如果新的children没有子节点,将旧的子节点移除);
+      4、比较如果都有子节点,进行updateChildren,判断如何对这些新节点的子节点进行操作(使用patch函数对比新老节点,然后修改真实dom)
+      5、匹配是,找到相同的子节点,递归比较子节点;
+      6、流程:数据改变——>虚拟dom(计算变更)——>操作真实dom——>视图更新;
+        patch函数: 用新的vnode更新旧的vnode
+      7、如果节点相同,直接返回;不同,一切以新的VNode为准;
+        
+    patchVnode做了以下操作：
+      1、找到对应的真实dom，称为el
+      2、如果都有文本节点且不相等，将el文本节点设置为Vnode的文本节点
+      3、如果oldVnode有子节点而VNode没有，则删除el子节点
+      4、如果oldVnode没有子节点而VNode有，则将VNode的子节点真实化后添加到el
+      5、如果两者都有子节点，则执行updateChildren函数比较子节点
+
+    updateChildren主要做了以下操作：
+      1、设置新旧VNode的头尾指针
+      2、新旧头尾指针进行比较，循环向中间靠拢，根据情况调用patchVnode进行patch重复流程、调用createElem创建一个新节点，
+      从哈希表寻找 key一致的VNode 节点再分情况操作
+
+    Vue2: 递归和双指针
+    根据标签tag和key来判断是不是同一个元素
+   
+    Vue3: 最长递增子序列
+
+     */
+    
+    </script>
+  </body>
+</html>

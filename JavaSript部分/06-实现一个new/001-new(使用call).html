@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*************实现一个new******************')  
+    /*
+      1、创建一个空的js对象(即{})
+      2、为新创建的的对象添加属性__proto__,将该属性链接到构造函数的原型对象
+      3、将新创建的对象作为this的上下文
+      4、如果该函数没有返回对象或函数,则返回新创建的对象
+    */
+    function myNew(fn, ...args){
+      let obj = {};
+      obj.__proto__ = fn.prototype;
+      let res = fn.call(obj, ...args);
+      if(res &&(typeof res === 'object' || typeof res === 'function')){
+        return res;
+      }
+      return obj;
+    }
+    
+    function Foo(name){
+      this.name = name;
+    }
+
+    var luckyStar = myNew(Foo, 'luckyStar');
+    console.log(luckyStar.name);
+    </script>
+  </body>
+</html>
