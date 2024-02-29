@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+      1、Key是Vue中的vnode的唯一标记;
+      2、通过key,diff操作可以更准确,更快速;
+      3、准确的原因就是带key就不是就地复用;
+      4、快速的原因就是利用key的唯一性生成map对象来获取节点,比遍历方式更快.
+      5、不能使用index作为key是因为index都是0、1、2…这样排列,导致vue会复用错误的旧节点
+
+      vue就地复用策略：Vue会尽可能的就地（同层级，同位置），对比虚拟dom，复用旧dom结构，进行差异化更新。
+      https://blog.csdn.net/Fkiki/article/details/128887782
+    */ 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+    1、computed值有缓存、触发条件是依赖值发生更改、 
+       watch无缓存支持异步、监听数据变化
+  
+    2、computed：是计算属性，依赖其它属性值，并且computed的值有缓存，
+      只有它依赖的属性值发生改变，下一次获取computed的值时才会重新计算computed的值；
+      watch:更多的是观察的作用，支持异步,类似于某些数据的监听回调,每当监听的数据变化时都会执行回调进行后续操作；
+  
+    3、computed应用场景：需要进行数值计算，并且依赖于其它数据时，
+        应该使用 computed，可以利用 computed 的缓存特性，避免每次获取值时，都要重新计算； 
+      
+      watch应用场景：需要在数据变化时执行异步或开销较大的操作时，应该使用 watch，
+      使用 watch 选项允许我们执行异步操作 ( 访问一个 API )，限制我们执行该操作的频率，并在我们得到最终结果前，设置中间状态。
+    */ 
+
+    </script>
+  </body>
+</html>
