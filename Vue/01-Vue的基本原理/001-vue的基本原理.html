@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+      虚拟DOM：https://www.bilibili.com/video/BV1dV411a7mT/
+      
+      1、根据树的层次划分,只是比较同一层级;
+      2、对比节点本身,判断是否是同一节点,如果不是相同节点,则删除该节点重新创建进行替换;
+      3、如果是相同节点,进行patchNode,判断如何对该节点的子节点进行处理,先判断一方有子节点一方没有子节点的情况
+      (如果新的children没有子节点,将旧的子节点移除);
+      4、比较如果都有子节点,进行updateChildren,判断如何对这些新节点的子节点进行操作(使用patch函数对比新老节点,然后修改真实dom)
+      5、匹配是,找到相同的子节点,递归比较子节点;
+      
+      6、流程:数据改变——>虚拟dom(计算变更)——>操作真实dom——>视图更新;
+        patch函数: 用新的vnode更新旧的vnode
+      
+      7、如果节点相同,直接返回;如果不同,一切以新的VNode为准;
+        新的vnode有children,旧的需要删除原来的text,添加新的children;或更新新的children;
+        新的vnode有text,旧的需要删除原来的children,添加新的text;或更新的新text
+        children和text是互斥的,不会同时存在
+    */ 
+
+    /**
+     https://www.bilibili.com/video/BV1bK4y1a7f2/?p=3&spm_id_from=pageDriver&vd_source=7f0b239b468644acab41441987770602
+     DOM diff可能的大概逻辑
+     Tree diff
+     1、将新旧两颗树逐层对比,找出哪些节点需要更新;
+     2、如果节点是组件,就看Component diff
+     3、如果节点是标签就看Element diff
+
+     Component diff
+     1、如果节点是组件,就先看组件类型
+     2、类型不同直接替换(删除旧的)
+     3、类型相同直接更新属性
+     4、然后深入组件坐Tree diff(递归)
+
+     Element diff
+     1、如果节点是原生标签,则看标签名
+     2、标签名不同直接替换,相同则只更新属性
+     3、然后进入标签后代坐Tree diff
+     */
+    
+    </script>
+  </body>
+</html>
