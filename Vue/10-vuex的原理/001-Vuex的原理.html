@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+      概念
+      1、Vuex是专为vue.js应用程序开发的状态管理工具,核心是store.store相当于一个容器,包含你的应用中大部分状态state;
+      2、Vuex的状态存储是响应式.当Vue组件从store中读取状态的时候.若store的状态发生变化,响应组件也得到高效更新;
+      3、改变tore的状态是显式提交commit到mutation
+
+      核心流程的主要功能
+      1、Vue组件会触发(dispatch)Actions;
+      2、Vuex中数据集中管理,获取或改变数据的动作提交(Commit)到Mutations中;
+      3、Mutations去改变State中的数据;
+      4、State中的数据被改变之后,重新渲染render到Vue组件,组件展示更新后的数据,完成一个流程
+
+      各模块在核心流程中的主要功能
+      1、vue component: vue组件,html页面中,负责接收用户操作等交互行为,执行dispatch方法触发对action进行响应;
+      2、dispatch: 操作行为触发方法,是唯一执行action的方法;
+      3、actions: 操作行为处理模块.负责处理Vue Component接收到的所有交互行为,包括同步/异步操作;
+      4、commit:状态改变提交操作方法,对mutation进行提交;
+      5、mutations: 状态改变操作方法,只能同步操作;
+      6、state: 页面状态管理容器对象,利用vue的细粒度数据响应来进行高效的状态更新;
+      7、getters: state对象读取方法.
+    */ 
+    
+    </script>
+  </body>
+</html>
