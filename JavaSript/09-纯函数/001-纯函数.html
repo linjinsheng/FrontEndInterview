@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>111</div>
+<script>
+/*
+纯函数
+一个函数如果相同的输入会得到相同的输出,而且没有任何可观测的副作用.
+1、确定性: 对于相同的输入,纯函数总是产生相同的输出;
+2、无副作用: 纯函数不会修改其外部环境,包括全局变量、输入参数对象等;
+*/ 
+
+/*
+function add(a, b){
+    return a + b;
+}
+*/
+var globalVar = 1;
+function add(a, b){
+    globalVar += 1;
+    return a + b + globalVar;
+}
+console.log(add(2, 3));               //  7
+console.log(add(2, 3));               //  8
+
+// 1、toSorted()
+let arr = [5, 1, 9];
+let newArr = arr.toSorted();
+console.log(newArr);                  // [1, 5, 9]
+
+// 2、反转数组
+let reverdArr = arr.toReversed();
+console.log(reverdArr);               // [9, 1, 5]
+
+// 3、删除元素
+let splicedArr = arr.toSpliced(1);
+console.log(splicedArr);               // [5]
+
+// 4、修改元素
+let withArr = arr.with(0, 2);
+console.log(withArr);                  // [2, 1, 9]
+</script>
+</body>
+</html>
+

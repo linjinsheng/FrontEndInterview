@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div></div>
+<script>
+Array.prototype.myFilter = function(func) {
+  let results = [];
+  for (let i=0;i<this.length;i++) {
+    if (func(this[i], i, this)) {
+      results.push(this[i]);
+    }
+  }
+  return results;
+}
+
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result1 = words.myFilter(word => word.length > 6);
+console.log(result1);             // ['exuberant', 'destruction', 'present']
+
+const result2 = words.filter(word => word.length > 6);
+console.log(result2);             // ['exuberant', 'destruction', 'present']
+
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    var obj = [1, 2, 3, 4, 5, 6,7];
+    console.log(Object.prototype.toString.call(obj).slice(8, -1) === 'Array');    //  true
+    console.log(obj.__proto__ === Array.prototype);                               //  true
+    console.log(Array.isArray(obj));                                              //  true
+    console.log(obj instanceof Array);                                            //  true
+    console.log(Array.prototype.isPrototypeOf(obj));                              //  true
+    console.log(obj.__proto__.constructor.name == 'Array');                       //  true
+    </script>
+  </body>
+</html>
