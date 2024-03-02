@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      Node的Event Loop分为6个阶段
+      1、Timers(定时器阶段)
+      2、Pending callbacks: 执行推迟到下一个循环迭代的I/O回调.(待定回调)
+      3、Idle/Prepare: 仅供内部使用
+      4、Poll(轮询阶段)
+      5、Check(查询阶段)
+      6、Close Callbacks: 执行关闭回调
+
+      微任务和宏任务在Node中执行顺序
+      Node10以前
+      1、执行完一个阶段的所有任务
+      2、执行完nextTick队列里面的内容
+      3、然后执行微任务队列的内容
+
+      Node11以后
+      和浏览器的行为统一了,都是每执行完成一个宏任务就执行完微任务队列.
+     */
+    </script>
+  </body>
+</html>
+

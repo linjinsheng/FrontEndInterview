@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      一、概念
+      当不再用到的对象内存,没有即使被回收时,叫内存泄露;
+
+      二、常见的内存泄露
+      1、不正当的闭包;
+      2、隐式全局变量;
+      3、游离DOM引用;
+      4、遗忘的定时器;
+      5、遗忘的事件监听器;
+      6、遗忘的监听者模式;
+      7、遗忘的Map、Set对象;
+      8、未清理的console输出
+
+      三、内存泄漏处理
+      1、排查问题
+      使用chrome DevTool的performance,选择Memory,观察JS Heap
+      2、分析定位
+      观察Memory,生成快照,切换到Comparsion,关注Delta,对比快照
+      3、修复验证
+      限制使用的全局对象的大小
+      将变量a = null
+     */
+     
+     function fun(){
+       a = 10;
+       this.b = 20;
+     }
+     fun();
+     console.log(a);  // 10
+     console.log(b);  // 20
+    </script>
+  </body>
+</html>

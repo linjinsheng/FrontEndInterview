@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    var p = new Promise(resolve=>{
+      console.log(4);
+      resolve(5);
+    })
+    function fun1(){
+      console.log(1);
+    }
+    function fun2(){
+      setTimeout(()=>{
+        console.log(2);
+      },0)
+      fun1();
+      console.log(3);
+      p.then(resolve=>{
+        console.log(resolve);
+      })
+    }
+    fun2();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      加法精度
+      
+      注意点
+      0、使用tostring进行数值转为字符串
+      1、使用split进行拆分成数组
+      2、判断有没有小数位
+      3、计算小数位有几位
+      4、判断两个数最大小数位的长度
+      5、使用Math.pow(10, n)进行10的n次方计算(n为最大小数位长度)
+      6、使用number进行处理
+      7、使用parseFloat
+      8、使用tofixed保留小数位
+    */
+
+    function accAdd (arg1, arg2) {
+      let t1 = 0,
+        t2 = 0,
+        r1,
+        r2,
+        m,
+        n
+      try {
+        t1 = arg1.toString().split('.')[1].length
+      } catch (e) {}
+      try {
+        t2 = arg2.toString().split('.')[1].length
+      } catch (e) {}
+      m = Math.pow(10, Math.max(t1, t2))
+      n = t1 >= t2 ? t1 : t2
+      r1 = Number(arg1) * m
+      r2 = Number(arg2) * m
+      return parseFloat(((r1 + r2) / m).toFixed(n))
+  }
+
+    let addNum = accAdd(10.1, 20.21);
+    let num = 10.1 + 20.21;
+    console.log('加法精度----', addNum);
+    console.log('没有采用加法精度num----', num);
+    </script>
+  </body>
+</html>
+

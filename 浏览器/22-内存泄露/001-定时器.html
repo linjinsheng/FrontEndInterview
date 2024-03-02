@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="test">你好</div>
+    </div>
+    
+    <script>
+    //  清除定时器
+    var main = document.querySelector('.main');
+    var timer = setInterval(()=>{
+      var test = document.querySelector('.test');
+      main.removeChild(test);
+      console.log(test);
+      test = null;
+      if(!test){
+        clearInterval(timer);
+      }
+    }, 2000)
+    </script>
+  </body>
+</html>
