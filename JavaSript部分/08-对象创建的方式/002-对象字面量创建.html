@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    /**
+      使用对象字面量表示法来创建对象
+      缺点: 用同一个接口创建很多对象,会产生大量的重复代码
+     */
+     var person = {};
+     person = {
+       name: 'John',
+       age: 20
+     }
+     console.log(JSON.stringify(person));
+    </script>
+  </body>
+</html>
