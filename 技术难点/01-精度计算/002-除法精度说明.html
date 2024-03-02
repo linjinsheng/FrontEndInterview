@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      除法精度
+      
+      注意点
+      0、使用tostring进行数值转为字符串
+      1、使用split进行拆分成数组
+      2、判断有没有小数位
+      3、计算小数位有几位
+      4、使用replace替换小数点
+      5、使用Math.pow(10, n)进行10的n次方计算 n = t2-t1
+    */
+
+    function accDiv (arg1, arg2) {
+    let t1 = 0,
+        t2 = 0,
+        r1,
+        r2
+    try {
+      t1 = arg1.toString().split('.')[1].length
+    } catch (e) {}
+    try {
+      t2 = arg2.toString().split('.')[1].length
+    } catch (e) {}
+    r1 = Number(arg1.toString().replace('.', ''))
+    r2 = Number(arg2.toString().replace('.', ''))
+    return r1 / r2 * Math.pow(10, t2 - t1)
+  }
+
+    let accNum = accDiv(100.1, 20.21);
+    let num = 100.1 / 20.21;
+    console.log('除法精度----', accNum);
+    console.log('没有采用除法精度num----', num);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    console.log(1);
+    new Promise(resolve=>{
+      console.log(2);
+      setTimeout(()=>{
+        resolve(3);
+      },0)
+    }).then(param=>{
+      console.log(param)
+    })
+    setTimeout(()=>{
+      console.log(4)
+    },0)
+    console.log(5);
+    
+    /**
+      1
+      2
+      5
+      3
+      4 
+     */
+    </script>
+  </body>
+</html>

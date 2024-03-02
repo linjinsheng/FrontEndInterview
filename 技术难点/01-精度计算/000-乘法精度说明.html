@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      1、乘法精度
+      2、加法精度
+      3、除法精度
+      
+      注意点
+      0、使用tostring进行数值转为字符串
+      1、使用split进行拆分成数组
+      2、判断有没有小数位
+      3、计算小数位有几位
+      4、使用replace替换小数点
+      5、使用Math.pow(10, n)进行10的n次方计算
+      6、使用number进行处理
+    */
+
+    function accMul (arg1, arg2) {
+        let m = 0
+        const s1 = arg1.toString()
+        const s2 = arg2.toString()
+        let t;
+
+        t = s1.split('.')
+        console.log('第一次-----', t);
+        // 判断有没有小数位，避免出错
+        if (t[1]) {
+          m += t[1].length
+        }
+
+        t = s2.split('.')
+        console.log('第二次-----', t);
+        console.log()
+        if (t[1]) {
+          m += t[1].length
+        }
+
+        return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / Math.pow(10, m)
+    }
+
+    let mulNum = accMul(10.1, 20.2);
+    let num = 10.1 * 20.2;
+    console.log('乘法精度----', mulNum);
+    console.log('没有采用乘法精度num----', num);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>上下左右居中10</title>
+    <style>
+      .container {
+        background-color: greenyellow;
+        height: 200px;
+        font-size: 0;
+        text-align: center;
+      }
+      .container:after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      .item {
+        display: inline-block;
+        background-color: #ff266e;
+        color: white;
+        vertical-align: middle;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">爱拼才会赢!</div>
+    </div>
+    <script>
+      /*
+        子元素宽和高不确定,使用after
+       */
+    </script>
+  </body>
+</html>

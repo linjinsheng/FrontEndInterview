@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    /**
+      原型模式
+     */
+    function Person() {}
+    Person.prototype.name = "lisi";
+    Person.prototype.age = 21;
+    Person.prototype.family = ["lida","lier","wangwu"];
+    Person.prototype.say = function(){
+        alert(this.name);
+    };
+    console.log(Person.prototype);                   // Object{name: 'lisi', age: 21, family: Array[3]}
+
+    var person1 = new Person();                      // 创建一个实例person1
+    console.log(person1.name);                       //  lisi
+    console.log(JSON.stringify(person1));
+
+    var person2 = new Person();                     //  创建实例person2
+    person2.name = "wangwu";                        //  设置实例自己的属性
+    person2.family = ["lida","lier","lisi"];
+    console.log(JSON.stringify(person2));         
+    console.log(person2.age);                        //21  
+    </script>
+  </body>
+</html>

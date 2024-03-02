@@ -1,0 +1,27 @@
+<div id="box" style="width: 200px;height: 200px;background-color: red;"></div>
+<script>
+    var box = document.getElementById('box');
+    function fun() {
+        console.log(11111)
+    }
+    //事件监听
+    function addEvent(dom, event, fnName) {
+        //ie8(包含)以上及chrome,火狐
+        if (dom.addEventListener) {
+            dom.addEventListener(event, fnName);
+        }
+    }
+    //解除事件监听
+    function removeEvent(dom, event, fnName) {
+        if (dom.removeEventListener) {
+            dom.removeEventListener(event, fnName);
+        }
+    }
+
+    //添加事件监听
+    addEvent(box, 'click', fun);
+    //1s后解除事件监听
+    setTimeout(function () {
+        removeEvent(box, 'click', fun);
+    }, 1000)            
+</script>

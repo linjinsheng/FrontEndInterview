@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div class="main">
+    </div>
+    
+    <script>
+    //  闭包
+    function fun(name){
+      function fun1(){
+        console.log(name);
+      }
+      return fun1;
+    }
+
+    var fn = fun("张三");
+    fn();
+    fn = null;
+    fn();
+      
+    </script>
+  </body>
+</html>

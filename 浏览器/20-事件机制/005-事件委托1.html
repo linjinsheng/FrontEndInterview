@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      ul{
+        width: 300px;
+        display: flex;
+        border: 1px solid #000;
+      }
+      li{
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        list-style: none;
+        border-right: 1px solid #000;
+        text-align: center;
+      }
+      li:last-child {
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <script>
+      const ul = document.querySelector("ul");
+      ul.addEventListener('click', function(e) {
+        const target = e.target;
+        if(target.tagName.toLowerCase() === "li"){
+          const lilist = this.querySelectorAll("li");
+          index = Array.prototype.indexOf.call(lilist, target);
+          console.log(`内容为${target.innerText}, 索引为${index}`)
+        }
+      })
+    </script>
+  </body>
+</html>

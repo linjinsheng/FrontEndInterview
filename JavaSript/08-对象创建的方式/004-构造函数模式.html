@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    /**
+      构造函数模式
+      1、创建一个新对象
+      2、将构造函数的作用域赋给新对象(将this指向这个新对象)
+      3、执行构造函数代码
+      4、返回新对象
+      缺点: 构造函数也有缺陷,每个实例包含不同的Function实例
+     */
+     function Person(name,age,family) {
+          this.name = name;
+          this.age = age;
+          this.family = family;
+          this.say = function(){
+              console.log(this.name);
+          }
+      }
+      var person1 = new Person("lisi",21,["lida","lier","wangwu"]);
+      var person2 = new Person("lisi",21,["lida","lier","lisi"]);
+      console.log(JSON.stringify(person1));
+      console.log(JSON.stringify(person2));
+      console.log(person1 instanceof Object); //true
+      console.log(person1 instanceof Person); //true
+      console.log(person2 instanceof Object); //true
+      console.log(person2 instanceof Person); //true
+      console.log(person1.constructor === Person);    //true   
+    </script>
+  </body>
+</html>

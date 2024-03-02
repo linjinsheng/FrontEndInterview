@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="test">天</div>
+      <div class="item">天</div>
+      <div class="item">向</div>
+    </div>
+    <button id="add">点击我增加</button>
+    <button id="remove">点击我减少</button>
+    <script>
+    /**
+     * Dom泄漏
+     * 浏览器DOM和js采用的是不一样的引擎,DOM采用的是渲染引擎,而js采用的是V8引擎,所以js操作操作dom比较消耗性能
+     * 为了减少dom的操作,一般将常用的dom,采用变量引用的方式将其缓存在当前环境
+     * 如果在进行一些删除、更新操作以后,会忘记释放已经缓存的dom
+     * 删除的dom在js中有全局的引用,也就是我删除的test在文中被引用,所以无法释放内存.在删除更新等操作后应该将其设置为null
+     */
+    var add = document.querySelector("#add");
+    var remove = document.querySelector("#remove");
+    var main = document.querySelector(".main");
+    var test = document.querySelector(".test");
+    add.onclick = function(){
+        var itemN = document.createElement('div');
+        var txt = document.createTextNode('上');
+        itemN.appendChild(txt);
+        main.appendChild(itemN);
+    }
+    remove.onclick = function(){
+        console.log(test);
+        if(main.contains(test)){
+            main.removeChild(test);
+            test = null;
+        }
+    }
+    </script>
+  </body>
+</html>

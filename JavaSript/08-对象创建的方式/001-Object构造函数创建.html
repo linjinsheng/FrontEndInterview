@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    /**
+      Object构造函数创建
+      缺点: 用同一个接口创建很多对象,会产生大量的重复代码
+     */
+     var person = new Object();
+     person.name = 'John';
+     person.age = 20;
+     console.log(JSON.stringify(person));
+    </script>
+  </body>
+</html>
