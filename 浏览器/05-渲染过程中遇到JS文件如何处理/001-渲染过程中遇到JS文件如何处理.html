@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      1、JavaScript 的加载、解析与执行会阻塞文档的解析，即在构建DOM时，HTML解析器若遇到了JavaScript，
+      那么它会暂停文档的解析，将控制权移交给JavaScript引擎，等JavaScript引擎运行完毕，浏览器再从中断的地方恢复继续
+      解析文档。
+      2、如果想要首屏渲染的越快，就越不应该在首屏就加载JS文件，建议将script标签放在body标签底部因。
+      3、并不是说script标签必须放在底部，可以给script标签添加defer或者async属性。
+     */
+    </script>
+  </body>
+</html>

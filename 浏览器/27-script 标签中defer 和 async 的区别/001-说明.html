@@ -10,11 +10,11 @@
     <script>
     console.log('*******************************')
     /**
-      宏任务包括:
-      script脚本的执行、setTimeout、setInterval、setImmediate一类的定时事件.还有I/O操作,UI渲染;
-
-      微任务包括:
-      promise的回调,node中process.nextTick、对Dom的MutationObserver
+      async: 下载完成,立即异步加载,加载好后立即执行
+      
+      defer: 下载完成,立即异步加载, 
+             如果DOM树还没有构建好,则先等DOM树解析好再执行;
+             如果DOM树已经构建好,则立即执行
      */
     </script>
   </body>

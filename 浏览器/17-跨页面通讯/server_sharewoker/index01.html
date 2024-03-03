@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>网页一</title>
+</head>
+<body>
+    <p id="log"></p>
+    <input type="text" name="" id="txt">
+    <button id="get">取数据</button>
+    <button id="set">发数据</button>
+    <script>
+        try {
+        var worker = new SharedWorker('worker.js');
+        var getBtn = document.getElementById('get');
+        var setBtn = document.getElementById('set');
+        var txt = document.getElementById('txt');
+        var log = document.getElementById('log');
+        
+        worker.port.addEventListener('message', function (e) {
+            log.innerText = e.data;
+            console.log('网页一获得数据了！', e.data);
+        }, false);
+        worker.port.start(); // note: need this when using addEventListener
+        setBtn.addEventListener('click', function (e) {
+            worker.port.postMessage(txt.value);
+        }, false);
+        getBtn.addEventListener('click', function (e) {
+            worker.port.postMessage('get');
+        }, false);
+    } catch(e) {
+        console.log('报错！', e);
+    }
+
+    </script>
+
+</body>
+
+</html>
