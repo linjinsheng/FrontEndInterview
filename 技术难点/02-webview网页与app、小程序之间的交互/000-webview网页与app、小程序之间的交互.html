@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      一、webview与app之间的交互事件
+      1、在web网页端判断导航栏对应的是安卓还是iOS的版本;
+      2、在web端创建事件,传送参数,参数可设置为字典或字符串;
+      3、在APP端,例如iOS中加载webview的url,通过代理进行webview和app之间的事件监听交互;添加addScriptMessageHandler,在代理WKScriptMessageHandler中进行事件处理;
+
+      二、webview与小程序之间的交互
+      1、小程序通过菊花码跳转到webview中,webview可以通过路由获取传递的参数.
+      let wxOpenId = this.$route.query.openId;
+      2、webView返回到小程序的对应的页面
+      可以对传送数据进行encodeURIComponent(编码),
+      小程序对应页面在onload时对传递过来的数据进行解码decodeURIComponent(解码)
+      webview跳转的代码如下:
+      let data = { exhibitionId: exhibitionId,exhibitionName: exhibitionName, name: exhibitionStaffName, phone: exhibitionStaffPhone }
+      wx.miniProgram.navigateTo({
+             url: `/pages/exhibition/exhibition-regist?${this.obj2url(data)}`
+      })
+      小程序和页面加载监听和解码的代码如下
+      if (options.exhibitionName){
+            this.setData({
+                exhibitionName: decodeURIComponent(options.exhibitionName),
+          })
+      }
+
+      1、var browser = {
+          versions: function(){
+          var u = navigator.userAgent, app = navigator.appVersion;
+               return {
+                      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                      android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+                  };
+          }(),
+          language:(navigator.browserLanguage || navigator.language).toLowerCase()
+        }
+      2、 let params = {
+            type: 3,
+            url: this.authorizeUrl,
+            base64Data: sendData
+          }
+          if (browser.versions.android) {
+            window.cloudcustom && window.cloudcustom.customAuthorize(3, this.authorizeUrl, sendData);
+          }
+          else if (browser.versions.ios) {
+            window.webkit && window.webkit.messageHandlers.customAuthorize.postMessage(params);
+          }
+    3、
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.userContentController = [WKUserContentController new];
+    // 返回
+    [configuration.userContentController addScriptMessageHandler:self name:@"exitCloudCustom"];
+    */
+    </script>
+  </body>
+</html>
+

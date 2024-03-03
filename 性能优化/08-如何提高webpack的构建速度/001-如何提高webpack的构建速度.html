@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      1、多入口情况下,使用commonchunkplgin来提取公共代码;
+      2、通过externals配置来提取常用库;
+      3、利用DllPlugin和DllReferencePlugin预编译资源模块.通过DllPlugin来对我们引用但是绝对不会修改的npm包进行预编译,通过DllReferencePlugin将预编译的模块加载进来;
+      4、利用Happypack实现多线程加速编译;
+      5、利用webpack-uglify-parallel来提升uglifyPlugin的压缩速度,采用多核并行压缩;
+      6、使用tree-shaking和scope hoisting来剔除多余代码.
+     */
+    </script>
+  </body>
+</html>
