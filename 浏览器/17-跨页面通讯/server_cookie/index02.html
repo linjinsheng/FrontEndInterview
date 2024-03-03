@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二个页面</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function () {
+            function getCookie(key) {
+                // console.log(document.cookie.replace(/;\s+/gim, "\",\"").replace(/=/gim, "\":\""));
+                if (document.cookie ) {
+                    return JSON.parse("{\"" + document.cookie.replace(/;\s+/gim, "\",\"").replace(/=/gim, "\":\"") + "\"}")[key];
+                } else {
+                    return '';
+                }
+            }
+            setInterval(function () {
+                console.log("name=" + getCookie("name"));
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

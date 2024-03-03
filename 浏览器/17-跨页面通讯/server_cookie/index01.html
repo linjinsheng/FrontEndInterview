@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一个页面改</title>
+</head>
+<body>
+    <input id="name" autocomplete="off">
+    <input type="button" id="btn" value="提交">
+    <script type="text/javascript">
+        window.onload = function () {
+            var btnEle = document.getElementById('btn');
+            var nameEle = document.getElementById('name');
+            btnEle.onclick = function () {
+                var name = nameEle.value;
+                document.cookie = "name=" + name; 
+            }
+        }
+    </script>
+</body>
+
+</html>

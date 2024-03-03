@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      概念:
+      CSRF: Cross-Site request forgery 跨站请求伪造攻击
+      攻击者诱导用户进入一个第三方网站,然后该网站向攻击网站发送跨站请求.如果用户在被攻击网站中保存了登录状态,那么攻击者就可以利用这个登录状态,
+      绕过后台的用户的验证,冒充用户向服务器执行一些操作.
+
+      CSRF攻击的本质是利用cookie会在同源请求中携带发送给服务器的特点，以此来实现用户的冒充。
+
+      攻击类型
+      1、GET类型的CSRF攻击,比如在网站中的一个img标签里构建一个请求,当用户打开这个网站会自动发起提交;
+      2、POST类型的CSRF攻击,比如构建一个表单,然后隐藏它,当用户进入页面时,自动提交这个表单;
+      3、链接类型的CSRF攻击,比如在a标签的href属性里构建一个请求,然后诱导用户去点击;
+     */
+
+     /**
+      同源策略的概念:
+      protocol(协议)、domain(域名)、port(端口)必须一致;
+      目的主要是为了保证用户的信息安全,对js脚本的一种限制
+      1、当前域下的js脚本不能够访问其他域下的cookie、localStorage和indexDB;
+      2、当前域下js脚本不能够操作访问其他域下的DOM;
+      3、当前域下ajax无法发送跨域请求;
+      
+      如何解决跨域问题?
+      1、CORS 跨域资源共享
+      2、JSONP : 利用<script>标签src属性;
+      3、postMessage跨域;
+      4、nginx代理跨域
+      5、Nodejs中间件代理跨域
+      6、document.domain + iframe跨域;
+      7、location.hash + iframe跨域;
+      8、window.name + iframe跨域;
+      9、Websocket协议跨域
+      */
+    </script>
+  </body>
+</html>
