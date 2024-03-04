@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    let promise = new Promise(function(resolve, reject){
+        console.log("1");
+        resolve(3);
+    });
+    setTimeout(()=>console.log("2"), 0);
+    promise.then((data) => console.log(data));
+    console.log("4");
+
+    // 1
+    // 4
+    // 3
+    // 2
+    </script>
+  </body>
+</html>

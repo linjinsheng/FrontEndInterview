@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************') 
+    /*
+     *  https://juejin.cn/post/6958741343166267422
+     */ 
+     const arr = [
+    {
+      id: 1,
+      p_id: 0,
+      name: '首页',
+      children: [
+        {
+          id: 4,
+          p_id: 1,
+          name: '权限管理',
+          children: [
+            {
+              id: 6,
+              p_id: 4,
+              name: '角色列表',
+              children: [
+                {
+                  id: 5,
+                  p_id: 6,
+                  name: '管理员列表',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 2,
+      p_id: 0,
+      name: '菜单管理'
+    },
+    {
+      id: 3,
+      p_id: 0,
+      name: '菜单列表'
+    }
+]
+
+// 得到的新数组的对象中含有children属性，需要删除
+function newArrFn(arr) {
+  return arr.reduce((acc, cur) => {
+    if (Array.isArray(cur.children)) {
+      const copyCur = { ...cur }
+      delete copyCur.children
+      return acc.concat(copyCur, newArrFn(cur.children))
+    } else {
+      return acc.concat(cur)
+    }
+  }, [])
+}
+console.log(JSON.stringify(newArrFn(arr)))
+
+    </script>
+  </body>
+</html>

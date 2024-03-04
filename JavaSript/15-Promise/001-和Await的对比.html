@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      一、await到底在等什么
+      1、await在等待一个async函数的返回值;
+      2、如果它等到的不是一个Promise对象,那await表达式的运算结果就是它等到的东西;
+      3、如果它等到的是一个promise对象,await就忙起来了,它会阻塞后面的代码,等着promise对象resolve,然后得到resolve的值,作为await表达式的运算结果.
+
+      二、async/await对比Promise的优势
+      1、处理多个Promise组成的then链问题;
+      2、代码读起来更加同步,十分优雅;
+      3、promise传递中间值比较麻烦;
+      4、错误处理友好,async/await可以用成熟的try/catch
+      5、调试友好
+     */
+
+    </script>
+  </body>
+</html>

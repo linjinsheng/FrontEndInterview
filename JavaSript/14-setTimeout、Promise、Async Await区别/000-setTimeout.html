@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('script start')	//1. 打印 script start
+    setTimeout(function(){
+        console.log('settimeout')	// 4. 打印 settimeout
+    })	// 2. 调用 setTimeout 函数，并定义其完成后执行的回调函数
+    console.log('script end')	//3. 打印 script start
+    // 输出顺序：script start->script end->settimeout
+    </script>
+  </body>
+</html>

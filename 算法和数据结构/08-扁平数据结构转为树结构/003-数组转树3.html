@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************') 
+    /*
+     *  https://segmentfault.com/a/1190000017214328
+     */ 
+    function listToTree(list){
+      var map = {}, node, tree= [], i;
+      for (i = 0; i < list.length; i ++) {
+          map[list[i].id] = list[i]; 
+          list[i].children = []; 
+      }
+      for(i = 0; i < list.length; i++){
+        node = list[i];
+        if (node.pid !== '-1') {
+            map[node.pid].children.push(node);
+        } else {
+          tree.push(node);
+        }
+      }
+      return tree;
+    }
+
+    var arr = [
+                {id: 1, pid: '-1'},
+                {id: 11, pid: '1'},
+                {id: 12, pid: '1'}
+              ];
+    
+    console.log('arr---', JSON.stringify(arr));
+    let newArr = listToTree(arr);
+    console.log('arrayToTree---',JSON.stringify(newArr));
+    </script>
+  </body>
+</html>
