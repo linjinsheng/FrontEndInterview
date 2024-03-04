@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*************React中hooks的优缺点是什么******************')  
+    /*
+      **函数组件 vs 类组件**
+      | 区别             | 函数组件(无状态组件) | 类组件 |
+      | ---------------- | -------------------- | ------ |
+      | 是否有 this         没有                    有     
+      | 是否有生命周期       没有                    有     
+      | 是否有状态 state     没有                    有
+
+      1. React Hooks 是一个新的 API，可以用函数来写所有的组件
+      2. 可以让函数组件也可以拥有自己的状态管理（包括 state 和生命周期函数）
+      3. 可以通过创建自定义的 Hooks来抽离可复用的业务组件
+      4、代码的可读性强，
+        在使用hooks之前比如发布/订阅自定义事件被挂载在componentDidMount生命周期中，
+        然后需要在componentWillUnmount生命周期中将它清楚，这样就不便于开发者维护和迭代。
+        在使用hooks之后，通过useEffect可以将componentDidMount生命周期、componentDidUpdate生命周期
+        和componentWillUnmount生命周期聚合起来，方便代码的维护
+      5、组件层级变得更浅了，在使用hooks之前通常使用高阶组件HOC的方法来复用多个组件公共的状态，
+        增强组建的功能，这样肯定是加大了组件渲染的开销，损失了性能。
+        但是在hooks中可以通过自定义组件useXxx()的方法将多个组件之间的共享逻辑放在自定义hook中，就可以轻松的进行数据互通
+      6、不再需要考虑class组件中this指向的问题，hook在函数组件中不需要通过this.state或者this.fn来获取数据或者方法;
+      7、useEffect时候里面不能写太多依赖项，将各个不同的功能划分为多个useEffect模块，将各项功能拆开写，
+        这是遵循了软件设计的“单一职责模式”。
+
+      缺点:
+      1、hooks的useEffect只包括了componentDidMount、componentDidUpdate还有componentWillUnmount这三个生命周期，
+        对于getSnapshotBeforeUpdate和componentDidCatch等其他的生命周期没有支持
+*/
+    </script>
+  </body>
+</html>
