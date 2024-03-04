@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+     *
+    函数组件：
+      1、一个函数就是一个组件
+      2、一个函数组件必须有 return
+      3、return 的是一个 React 元素
+    
+    类组件:
+    1、一个 Class 就是一个类组件
+    2、所有类组件都是继承于 React.Component
+    3、React.Component 类有自带的属性和方法, 比如 render，componentDidMount 等其他生命周期
+
+    一、函数组件和类组件对比
+      | 区别             | 函数组件(无状态组件) | 类组件 |
+      | ---------------- | -------------------- | ------ |
+      | 是否有 this       |  没有                  | 有     |
+      | 是否有生命周期     |  没有                   | 有     |
+      | 是否有状态 state   | 没有                   | 有     |
+
+    二、hooks新特性
+    React Hooks是v16.8版本引入了全新的API，它算是一个颠覆性的变革;
+    使用useState、useEffect;
+
+    三、hooks的简述
+    1、React Hooks 是一个新的 API，可以用函数来写所有的组件;
+    2、可以让函数组件也可以拥有自己的状态管理（包括 state 和生命周期函数）
+    3、可以通过创建自定义的 Hooks 来抽离可复用的业务组件
+
+    四、常用的10种hooks
+    1、useState
+    设置和改变state，代替原来的state和setState
+    2、useEffect
+    代替原来的生命周期，componentDidMount，componentDidUpdate 和 componentWillUnmount 的合并版
+    3、useLayoutEffect 
+    与 useEffect 作用相同，但它会同步调用effect
+    4、useMemo
+    控制组件更新条件，可根据状态变化控制方法执行,优化传值
+    5、useCallback
+    useMemo优化传值，usecallback优化传的方法，是否更新
+    6、useRef
+    跟以前的ref一样，只是更简洁了
+    7、useContext
+    上下文爷孙及更深组件传值
+    8、useReducer
+    代替原来redux里的reducer,配合useContext一起使用
+    9、useDebugValue
+    在 React开发者工具中显示自定义hook的标签，调试使用。
+     */
+    </script>
+  </body>
+</html>

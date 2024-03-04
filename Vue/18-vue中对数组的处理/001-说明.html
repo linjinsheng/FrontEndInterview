@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      https://www.bilibili.com/video/BV1Y44y1E7hf?from=search&seid=11324377409112286565&spm_id_from=333.337.0.0
+      vue2和vue3响应式数据的理解
+      1、响应式: 数据改变,对应的视图也会改变;
+      2、vue2.0通过Obejct.defineProperty(),如果好似多层次就要递归;
+      3、vue3采用proxy,如果是多层次数据,用户不使用,就不会递归;
+
+      Vue2是如何检测数组变化的
+      1、vue2中没有使用defineProperty对这个数组的每一项进行拦截,而是选择重写方法
+      2、数组中的如果是对象的数据类型,也继续递归处理
+      3、数组的索引和长度变化是无法监控的.
+    */
+    </script>
+  </body>
+</html>

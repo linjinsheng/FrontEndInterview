@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        /**
+        1)、设置父元素container的位置
+        2)、将主体部分的三个子元素都设置左浮动
+        3)、设置main宽度为width:100%, 让其单独占满一行
+        4)、设置left和right负的外边距
+        5)、使用相对定位移动left和right对应的位置
+        */
+        .container{
+            min-width: 400px;
+            height: 200px;
+            background-color: greenyellow;
+            padding: 0 200px;
+        }
+
+        .left, .right{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            float: left;
+        }
+
+        .main{
+            width: 100%;
+            height: 200px;
+            background-color: blue;
+            float: left;
+        }
+
+        .left{
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+
+        .right{
+            margin-left:-200px;
+            position: relative;
+            right: -200px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!--容器-->
+    <div class="container">
+         <div class="main">中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏中间栏</div>
+         <div class="left">左边栏</div>
+         <div class="right">右边栏</div>
+    </div>
+</body>
+</html>

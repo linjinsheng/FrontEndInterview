@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+    https://juejin.cn/post/6844903569632526344
+
+    SSR是Server Side Render
+    简称；页面上的内容是通过服务端渲染生成的，浏览器直接显示服务端返回的html就可以了。
+    CSR是Client Side Render
+    简称；客户端在请求时，服务端不做任何处理，直接将前端资源打包后生成的html返回给客户端，
+    此时的html中无任何网页内容，需要客户端去加载执行js代码才能渲染生成页面内容，同时完成事件绑定，
+    然后客户端再去通过ajax请求后端api获取数据更新视图。 
+    
+    服务端渲染的优势：
+    1、减少网络传输，响应快，用户体验好
+    2、首屏渲染快，
+    3、对搜索引擎友好，搜索引擎爬虫可以看到完整的程序源码，有利于SEO。
+
+    在Vue项目中实现服务端渲染方法：Vue在客户端渲染中也是采用一定方法将虚拟DOM渲染为真实DOM的，
+    那么服务端的渲染流程也是通过虚拟DOM的编译来完成的，编译虚拟DOM的方法是renderToString。
+    在Vue中，vue-server-renderer 提供一个名为 createBundleRenderer 的 API，
+    这个API用于创建一个 render，并且自带renderToString方法。 
+    
+    使用服务器端渲染 (SSR) 时还需要有一些权衡之处：
+     1、 开发条件所限。浏览器特定的代码，只能在某些生命周期钩子函数 (lifecycle hook) 中使用；
+     一些外部扩展库 (external library) 可能需要特殊处理，才能在服务器渲染应用程序中运行。 
+     2、 涉及构建设置和部署的更多要求。
+        与可以部署在任何静态文件服务器上的完全静态单页面应用程序 (SPA) 不同，
+        服务器渲染应用程序，需要处于Node.js server 运行环境。 
+     3、 更多的服务器端负载。
+        在Node.js 中渲染完整的应用程序，显然会比仅仅提供静态文件的 server 更加大量占用 CPU 资源 (CPU-intensive - CPU 密集)，
+        因此如果你预料在高流量环境 (high traffic) 下使用，请准备相应的服务器负载，并明智地采用缓存策略。     
+    */ 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>    
+    <script>
+    console.log('*******************************')
+    let cat = {
+      name: 'maomao',
+      sayName(){
+        function fun(){
+          console.log(this);
+        }
+        fun();
+      }
+    }
+    cat.sayName();  //  Window
+    </script>
+  </body>
+</html>

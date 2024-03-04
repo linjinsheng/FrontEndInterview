@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>我的网页</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>标题</h1>
+    <div>
+      <p>一段文字</p>
+      <ul>
+        <li>列表项1</li>
+        <li>列表项2</li>
+      </ul>
+    </div>
+    <script>
+    console.log('*******************************')
+    /**
+      链接地址
+      https://zhuanlan.zhihu.com/p/139634543
+      https://juejin.cn/post/6844904122747977736
+      https://juejin.cn/post/6995455015972241444
+
+      1、不要在模版里面写过多表达式
+      2、循环调用子组件是添加key
+      3、频繁切换的使用v-show,不频繁切换的使用v-if
+      4、尽量少用float,使用flex;
+      5、按需加载,可以使用require或者import()按需加载需要的组件
+      6、路由懒加载
+
+      Vue首屏加载优化
+      1、组件按需加载
+      2、路由异步加载
+      3、nginx开启gzip
+      4、使用CDN
+
+      Vue首屏加载白屏问题及解决方案
+      一、概念FP与FCP
+      FP（全称“First Paint”，翻译为“首次绘制”） 是时间线上的第一个“时间点”，
+      它代表浏览器第一次向屏幕传输像素的时间，也就是页面在屏幕上首次发生视觉变化的时间。
+
+      FCP（全称“First Contentful Paint”，翻译为“首次内容绘制”） ，顾名思义，
+      它代表浏览器第一次向屏幕绘制 “内容” 。
+
+      FP是当浏览器开始绘制内容到屏幕上的时候，只要在视觉上开始发生变化，
+      无论是什么内容触发的视觉变化，在这一刻，这个时间点，叫做FP。
+      FCP指的是浏览器首次绘制来自DOM的内容。例如：文本，图片，SVG，canvas元素等，这个时间点叫FCP。
+
+      FMP（全称“First Meaningful Paint”，翻译为“首次有效绘制”） 
+      表示页面的“主要内容”开始出现在屏幕上的时间点。它是我们测量用户加载体验的主要指标。
+
+      二、解决首屏加载慢的方法
+      1、预渲染
+      2、同构渲染,使用Nuxt
+      3、SSR 服务端渲染 服务端会把所有数据全部渲染完成再返回给客户端
+      4、路由懒加载
+      5、服务器使用Gzip压缩，减少文件体积,加快首屏页面打开速度
+      npm i compression-webpack-plugin -D
+      6、骨架屏
+      7、loading
+
+
+     */
+    </script>
+  </body>
+</html>

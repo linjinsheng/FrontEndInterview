@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      //  监听dom是否渲染完毕
+      let stateCheck = setInterval(() =>{
+        if(document.readyState === 'complete'){
+          clearInterval(stateCheck);
+          console.log('完成时间为----');
+          console.timeEnd()
+        }
+      }, 100)
+    </script>
+  </head>
+  
+  <body>
+    <ul></ul>
+    <script>
+      console.time();
+      //  插入10万条数据
+      const total = 10000;
+      let ul = document.querySelector('ul');  //  拿到ul
+
+      //  懒加载的思路---分段渲染
+      //  1、一次渲染一屏的量
+      const once = 20;
+      //  2、全部渲染完需要多少次,循环时使用
+      const loopCount = total/once;
+      //  3、已经渲染了多少次
+      let countHasRender = 0;
+
+      //  一次渲染20条
+      function add(){
+        //  创建虚拟节点,使用createDocumentFragment不会触发渲染
+        const fragment = document.createDocumentFragment();
+        //  循环20次
+        for(let i = 0; i < once; i++){
+          const li = document.createElement('li');
+          li.innerText = Math.floor(Math.random()*total);
+          fragment.appendChild(li);
+        }
+        //  最后把虚拟节点append到ul上
+        ul.appendChild(fragment);
+        //  4、已渲染的次数+1
+        countHasRender += 1;
+        loop();
+      }
+
+      //  最重要的部分来了
+      function loop(){
+        if(countHasRender < loopCount){
+          //  requestAnimationFrame叫做逐帧渲染
+          //  类似于setTimeout(add, 1000/60);
+          //  帧: 一秒钟播放多少张图片,一秒钟播放的图片越多,动画越流畅
+          window.requestAnimationFrame(add);
+        }
+      }
+      loop();
+
+      /**
+       * requestAnimationFrame 比起 setTimeout、setInterval的优势主要有两点：
+       * 1、requestAnimationFrame会把每一帧中的dom操作集中起来,在一次重绘或回流中就完成;
+       * 并且重绘或回流的时间间隔跟随浏览器的刷新频率,一般来说,这个频率为每秒60帧
+       * 2、在隐藏或不可见的元素中,requestAnimationFrame将不会进行重绘或回流,这意味着更少的cpu,gpu和内存使用量.
+       */
+    </script>
+  </body>
+</html>

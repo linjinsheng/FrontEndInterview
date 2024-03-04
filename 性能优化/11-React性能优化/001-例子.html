@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>我的网页</title>
+    <style>
+    </style>
+  </head>
+  <body>
+    <h1>标题</h1>
+    <div>
+      <p>一段文字</p>
+      <ul>
+        <li>列表项1</li>
+        <li>列表项2</li>
+      </ul>
+    </div>
+    <script>
+    console.log('*******************************')
+    /**
+      链接地址
+      https://juejin.cn/post/6844904082759499783#heading-3
+      https://juejin.cn/post/6844903924302888973#heading-8
+
+      1、组件尽可能进行拆分、解耦
+      2、列表累组件优化,增加组件标识key(唯一标识)
+      3、使用bind函数,绑定this
+      1)、constructor绑定,构造函数只在组件初始化的时候执行一次
+      2)、使用时绑定, 每次render都会执行
+      3)、使用箭头函数,每一次render时候都会生成新的箭头函数
+      4、使用React.Meno来缓存组件
+      5、使用useMemo缓存大量的计算
+      只有传入的参数发生变化后，该计算函数才会重新调用计算新的结果。
+      6、使用React.PureComponent , shouldComponentUpdate
+      只有当组件props状态改变时才会重新渲染
+      7、使用React.Lazy和React.Suspense延迟记载不是立即需要的组件
+      8、调整CSS而不是强制组件加载和卸载
+      设置透明度opacity
+      9、使用React.Fragment避免添加额外的DOM
+     */
+    </script>
+  </body>
+</html>
