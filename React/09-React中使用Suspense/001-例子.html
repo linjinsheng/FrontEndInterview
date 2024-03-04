@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+    <style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+      .box{
+        width: 300px;
+        height: 200px;
+        padding: 10px;
+        border: 20px solid lightblue;
+        margin: 30px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+    console.log('*******************************')
+    /**
+      链接地址:https://www.cnblogs.com/cczlovexw/p/14329286.html
+      1、在动态导入的帮助下,React Suspense可以延迟加载的组件;
+      const OtherComponent = React.lazy(()=>import('./OtherComponent'));
+      function MyComponent() {
+        return (
+          <div>
+          <Suspense fallback={<div>Loading...</div>}
+            <OtherComponent />
+          <Suspense>
+          </div>
+        );
+      }
+      OtherComponent是通过懒加载加载进来的，所以渲染页面的时候可能会有延迟，但使用了Suspense之后，可优化交互。 
+      在<OtherComponent />外面使用Suspense标签，并在fallback中声明OtherComponent加载完成前做的事，
+      即可优化整个页面的交互fallback 属性接受任何在组件加载过程中你想展示的 React 元素。你可以将 Suspense 
+      组件置于懒加载组件之上的任何位置。你甚至可以用一个 Suspense 组件包裹多个懒加载组件。
+     */
+    </script>
+  </body>
+</html>

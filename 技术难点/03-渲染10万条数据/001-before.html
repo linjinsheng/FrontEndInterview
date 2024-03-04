@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      //  监听dom是否渲染完毕
+      let stateCheck = setInterval(() =>{
+        if(document.readyState === 'complete'){
+          clearInterval(stateCheck);
+          console.log('完成时间为----');
+          console.timeEnd()
+        }
+      }, 100)
+    </script>
+  </head>
+  
+  <body>
+    <ul></ul>
+    <script>
+      console.time();
+      //  插入十万条数据
+      const total = 100000;
+      let ul = document.querySelector('ul');  //  拿到ul
+      function add(){
+        //  1、创建虚拟节点,使用createDocumentFrageMent不会触发渲染
+        const fragment = document.createDocumentFragment();
+        //  2、循环十万次
+        for(let i = 0; i < total; i++){
+          const li = document.createElement('li');
+          li.innerText = Math.floor(Math.random() * total);
+          fragment.appendChild(li);
+        }
+        //  3、最后把虚拟节点append到ul上
+        ul.appendChild(fragment);
+      }
+      add();
+    </script>
+  </body>
+</html>

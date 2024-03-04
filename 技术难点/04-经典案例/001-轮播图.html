@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+      .container {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        margin: 100px auto 0 auto;
+        box-shadow: 0 0 5px #ccc;
+        overflow: hidden;
+      }
+      .wrap {
+        position: absolute;
+        width: 4200px;
+        height: 400px;
+        z-index: 1;
+      }
+      .img {
+        float: left;
+        width: 600px;
+        height: 400px;
+        text-align: center;
+        font-size: 60px;
+        color: #fff;
+        line-height: 400px;
+      }
+      .div1 {
+        background-color: chocolate;
+      }
+      .div2 {
+        background-color: cyan;
+      }
+      .div3 {
+        background-color: olive;
+      }
+      .div4 {
+        background-color: pink;
+      }
+      .div5 {
+        background-color: purple;
+      }
+      .container .buttons {
+        position: absolute;
+        right: 200px;
+        bottom: 20px;
+        width: 160px;
+        height: 10px;
+        z-index: 2;
+      }
+
+      .container .buttons span {
+        margin-left: 5px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 50%;
+        background-color: cornflowerblue;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+      }
+
+      .container .buttons span.on {
+        background-color: red;
+      }
+
+      .container .arrow {
+        position: absolute;
+        top: 35%;
+        color: cornflowerblue;
+        padding: 0px 14px;
+        border-radius: 50%;
+        font-size: 50px;
+        z-index: 2;
+        display: none;
+      }
+      .container .arrowLeft {
+        left: 10px;
+      }
+      .container .arrowRight {
+        right: 10px;
+      }
+      .container:hover .arrow {
+        display: block;
+      }
+      .container .arrow:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"> 
+      <div class="wrap" style="left: -600px">
+           <!-- 实现无限滚动的关键，开头多放一张5-->
+           <div class="img div5">5</div>
+           <div class="img div1">1</div>
+           <div class="img div2">2</div>
+           <div class="img div3">3</div>
+           <div class="img div4">4</div>
+           <div class="img div5">5</div>
+           <!-- 实现无限滚动的关键 末尾多放一张5 -->
+           <div class="img div1">1</div>
+      </div>
+
+      <div class="buttons">
+        <span class="on">1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+      </div>
+      <a href="javascript:;" class="arrow arrowLeft">&lt;</a>
+      <a href="javascript:;" class="arrow arrowRight">&gt;</a>
+    </div>
+    <script>
+      //  因为下面要获取DOM,所以必须放到onload事件中
+      window.onload = function() {
+        const container = document.querySelector('.container');
+        const wrap = document.querySelector('.wrap');
+        const next = document.querySelector('.arrowRight');
+        const prev = document.querySelector('.arrowLeft');
+
+        const buttons = document.querySelector('.buttons').getElementsByTagName('span');
+        //  显示当前哪个按钮
+        let index = 1;
+        //  优化: 不停的点击,不停地调用animate,非常容易造成卡顿,可以做个判断,只有当前的动画完成之后,点击,才会触发animate
+        //  是否正在动画中
+        let animated = false;
+        /**
+         * 处理当前按钮的状态
+         */
+        function showButton() {
+          //  关掉之前的高亮效果
+          for(let i = 0; i < buttons.length; i++){
+            if(buttons[i].className === 'on'){
+              buttons[i].className = '';
+              break;
+            }
+          }
+          //  当前的亮起
+          buttons[index-1].className = 'on';
+        }
+
+        function animate(offset) {
+          animated = true;
+          let newLeft = parseInt(wrap.style.left) + offset;
+          /**
+           * 添加动画逻辑, 从一张图到另外一张图的逻辑
+           * 可以通过修改time和interval的值来修改动画的速度
+           */
+          let time = 300;       //  位移总时间 300ms
+          let interval = 10;    //  位移时间间隔 10ms
+          //  每次移动多少 = 偏移量 / 次数
+          //  次数 = 位移总时间 / 位移时间间隔
+          let speed = offset / (time / interval);
+
+          //  位移的判断以及是否位移
+          function go() {
+            //  直刀获取到的是字符串,比如‘100px’,需要用parseInt转换成数字做计算
+            let oldLeft = parseInt(wrap.style.left);
+            //  speed < 0 向左移动,并且目标值小于原有值
+            if((speed < 0 && oldLeft > newLeft) || (speed > 0 && oldLeft < newLeft)){
+              wrap.style.left = oldLeft + speed + 'px';
+              setTimeout(go, interval);
+            } else {
+              animated = false;
+              //  下面是处理滚动到头处理空图片的逻辑
+              //  滚动到右边,再向左滚动
+              //  left是0滚动到假的第五张图上,归位到第五张图上
+              if(newLeft > -600){
+                newLeft = -3000;
+              }
+              //  滚动到边,再向左滚动
+              //  到-3600时,滚动到假的第一张图上,归位到第一张图上
+              if(newLeft < -3000){
+                newLeft = -600;
+              }
+              wrap.style.left = newLeft + 'px';
+            }
+          }
+          go();
+        }
+
+        next.onclick = function() {
+          //  到最后一张图时,重置为1
+          if(index === 5){
+            index = 1;
+          }else{
+            index++;
+          }
+          showButton();
+          //  不是动画状态
+          if(!animated){
+            animate(-600);
+          }
+        }
+
+        prev.onclick = function() {
+          //  到第一张图时,重置为5
+          if(index === 1){
+            index = 5;
+          }else{
+            index--;
+          }
+          showButton();
+          //  不是动画状态,点击才会执行
+          if(!animated){
+            animate(600);
+          }
+        }
+
+        for(let i = 0; i < buttons.length; i++){
+          buttons[i].onclick = function() {
+            //  (目标值 - 原始值) * (-600)
+            let targetIndex = i + 1;
+            if(targetIndex === index){
+              return;
+            }
+            let offset = (targetIndex - index) * (-600);
+            //  更新index
+            index = targetIndex;
+            //  修改按钮的显示状态
+            showButton();
+            //  图片的切换
+            animate(offset);
+          }
+        }
+
+        //  自动滚动,每隔3s自动切换,就是每隔3s,自动点击一下下一页的按钮
+        let timer = null;
+        function play() {
+          timer = setInterval(() =>{
+            next.onclick();
+          }, 3000);
+        }
+        //  鼠标移上去需要清除
+        function stop(){
+          clearInterval(timer);
+        }
+        //  给整个容器添加鼠标移入和移出的事件
+        container.onmouseover = stop;
+        container.onmouseout = play;
+        //  最初是自动播放的状态
+        play();
+      }
+    </script>
+  </body>
+</html>

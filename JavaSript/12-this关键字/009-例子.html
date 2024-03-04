@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>    
+    <script>
+    console.log('*******************************')
+    let cat = {
+      name: 'maomao',
+      sayName(){
+        setTimeout(() => {
+          console.log(this.name);
+        }, 1000);
+      }
+    }
+    cat.sayName();  //  maomao
+    </script>
+  </body>
+</html>

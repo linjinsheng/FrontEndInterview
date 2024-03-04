@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      .container {
+        position: relative;
+        background-color: greenyellow;
+      }
+
+      .child {
+        position: absolute;
+        width:300px;             
+        height:260px;             
+        top:0;             
+        right:0;             
+        bottom:0;             
+        left:0;             
+        margin:auto;             
+        background:pink;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="child">
+        利用绝对定位
+        设置四个方向的值都为0，
+        并将margin设置为auto， 
+        由于宽高固定，因此对应方向实现平分，可以实现水平和垂直方向上的居中。
+        该方法适用于盒子有宽高的情况
+      </div>
+    <script>
+    </script>
+  </body>
+</html>

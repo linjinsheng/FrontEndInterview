@@ -3,10 +3,16 @@
   <head>
     <title>BFC1</title>
     <style>
-      .son{
+      .son-one{
         width: 200px;
         height: 200px;
         background-color: blue;
+        float: left;
+      }
+      .son-two{
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
         float: left;
       }
       .son-last{
@@ -19,8 +25,8 @@
   </head>
   <body>
     <div>
-      <div class="son"></div>
-      <div class="son"></div>
+      <div class="son-one"></div>
+      <div class="son-two"></div>
       <div class="son-last"></div>
     </div>
     <script>

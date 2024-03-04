@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      一、为什么要使用redux?
+      1、如果你的UI层比较简单,没有那么多交互,Redux是不必要的,用了反而增加复杂性;
+      (reducer, action => this.setState())
+      2、只有遇到React实在解决不了的问题,才需要Redux;
+
+      二、Redux有哪些最佳实践?
+      1、Redux的痛点是?
+      修改一次数据,太麻烦,dispatch(action) -> 调用reducer计算 ->触发回调 —>更新数据;
+      最大的弊端是样板代码(action、reducer)太多,修改数据的链路太长;
+      2、为什么使用Redux?
+      Redux可以解决跨组件间数据传递的问题,并且修改数据很清晰;
+      3、如何解决痛点问题
+      可以通过一些手段减少模版代码,从而简化Redux API;
+      使用Rudux-actions减少样板代码，使actions和reducers更清晰;
+      使用yeoman等cli工具，创建样板文件和样本代码;
+      
+      三、Redux的异步问题如何处理?
+      1、reducer是一个纯函数,无法处理其他类型的数据;
+      dispatch默认只能接收一个Object类型的action,因为reducer里面接收action.type来处理不同的数据
+      2、使用Redux-thunk或者Redux-saga等其他的中间件来使 Redux 支持异步 Action。
+
+
+     */
+    </script>
+  </body>
+</html>

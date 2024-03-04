@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      .container {
+        position: relative;
+        background-color: greenyellow;
+        height: 200px;
+      }
+
+      .child {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: #ff266e;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="child">
+        利用绝对定位
+        先将元素的左上角通过top:50%和left:50%定位到页面的中心，
+        然后再通过translate来调整元素的中心点到页面的中心。 
+        该方法需要考虑浏览器兼容问题
+      </div>
+    </div>
+    <script>
+    </script>
+  </body>
+</html>
