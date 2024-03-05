@@ -23,6 +23,39 @@
     
     Plugin在 plugins中单独配置。类型为数组，每一项是一个plugin 的实例，参数都通过构造函数传入。
      */
+
+    /*
+    
+    https://blog.csdn.net/weixin_44475093/article/details/116311515
+
+    Load和Plugin
+    一、区别
+    loader:
+    loader是文件加载器,能够加载资源文件,并对这些文件进行一些处理,例如编译、压缩等,最后一起打包到指定的文件中;
+    
+    plugin
+    plugin赋予webpack各种灵活的功能,例如打包优化、资源管理、环境变量注入等,目的是解决loader无法实现的其他事情.
+
+    二、运行时机
+    1、loader运行在打包文件之前;
+    2、plugins在整个编译周期起作用;
+
+    三、编写loader
+    1、loader的本质是函数,函数中的this作为上下文被webpack填充;
+    2、函数中this是由webpack提供的对象,能获取当前loader所需要的各种信息;
+    3、函数中有异步操作或同步操作,异步操作通过this.callback返回,返回值要求为string或Buffer
+    4、loader的过程中,保持功能单一,避免做多种功能;
+    
+    四、编写plugin
+    1、由于webpack基于发布订阅模式,在运行的生命周期中会广播出许多事件,插件通过监听事件,就可以在特定的阶段执行自己的插件任务;
+    2、插件必须是一个函数或者是一个包含apply方法的对象,这样才能访问compiler实例;
+    3、传给每个插件的compiler和compilation对象都是同一个引用;
+    4、异步的事件需要在插件完完任务时调用回调函数通知webpack进入到下一个流程
+    5、在emit事件发生时,代表源文件的转换和组装已经完成,可以读取最终输出的资源、代码块、模块及其依赖
+
+
+    */
+     
     </script>
   </body>
 </html>

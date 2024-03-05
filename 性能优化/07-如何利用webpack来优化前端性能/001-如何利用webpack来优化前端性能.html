@@ -12,7 +12,8 @@
     /**
       1、优化webpack的输出结果,让打包的最终结果在浏览器运行快速高效;
       2、压缩代码: 删除多余的代码、注释、简化代码的写法.
-         可用uglifyPlugin和parallelUglifyPlugin来压缩js文件,利用cssnano来压缩css;
+         可用uglifyPlugin和parallelUglifyPlugin来压缩js文件,
+         利用cssnano来压缩css;
       3、CDN加速: 在构建过程中,将引用的静态资源路径修改为CDN上对应的路径.
          可以利用webpack对output参数和各loader的publicPath参数来修改资源路径;
       4、Tree shaking: 将代码中永远不会走到的片段删除掉.
