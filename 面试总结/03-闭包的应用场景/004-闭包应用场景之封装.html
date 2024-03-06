@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>闭包模拟私有方法</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+<script>
+    //用闭包定义能访问私有函数和私有变量的公有函数。
+    var counter = (function(){
+        var privateCounter = 0; //私有变量
+        function change(val){
+            privateCounter += val;
+        }
+        return {
+            increment:function(){   //三个闭包共享一个词法环境
+                change(1);
+            },
+            decrement:function(){
+                change(-1);
+            },
+            value:function(){
+                return privateCounter;
+            }
+        };
+    })();
+
+    console.log(counter.value());   //0
+    counter.increment();
+    console.log(counter.value());   //1
+    counter.increment();
+    console.log(counter.value());   //2
+    //共享的环境创建在一个匿名函数体内，立即执行。
+    //环境中有一个局部变量一个局部函数，通过匿名函数返回的对象的三个公共函数访问。
+
+</script>
+</body>
+</html>

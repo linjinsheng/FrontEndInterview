@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<style>
+    body{
+        font-size: 12px;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+    h2{
+        font-size: 1.2rem;
+    }
+</style>
+<body>
+
+    <p>哈哈哈哈哈哈</p>
+    <h1>hhhhhhhhh</h1>
+    <h2>qqqqqqqqq</h2>
+
+    <a href="#" id="size-12">12</a>
+    <a href="#" id="size-14">14</a>
+    <a href="#" id="size-16">16</a>
+
+<script>
+    function changeSize(size){
+        return function(){
+            document.body.style.fontSize = size + 'px';
+        };
+    }
+
+    var size12 = changeSize(12);
+    var size14 = changeSize(14);
+    var size16 = changeSize(16);
+
+    document.getElementById('size-12').onclick = size12;
+    document.getElementById('size-14').onclick = size14;
+    document.getElementById('size-16').onclick = size16;
+    //我们定义行为，然后把它关联到某个用户事件上（点击或者按键）。我们的代码通常会作为一个回调（事件触发时调用的函数）绑定到事件上
+</script>
+</body>
+</html>

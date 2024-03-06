@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    //  闭包: 一个函数和它的周围状态的引用捆绑在一起的组合
+
+    // 1、函数作为返回量
+    function test() {
+      const a = 1;
+      return function(){
+        console.log('a---',a);
+      }
+    }
+    const fn = test();
+    const a = 2;
+    fn();       //  a---1
+    </script>
+  </body>
+</html>

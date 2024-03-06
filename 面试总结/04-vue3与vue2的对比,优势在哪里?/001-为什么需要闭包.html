@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    // https://blog.csdn.net/guoao20000915/article/details/125713323?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-125713323-blog-133916314.235%5Ev43%5Epc_blog_bottom_relevance_base1&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-125713323-blog-133916314.235%5Ev43%5Epc_blog_bottom_relevance_base1&utm_relevant_index=5
+    //  直接return
+    function fn1(){
+      let num = 1;
+      return num;
+    }   
+    console.log(fn1());     // 1
+
+    //  子函数
+    function fn2(){
+      let num = 1;
+      function fn3(){
+        console.log(num);
+      }
+      fn3();
+    }
+    fn2();                  // 1
+    //  使一个函数访问到另一个函数内部的变量
+    </script>
+  </body>
+</html>

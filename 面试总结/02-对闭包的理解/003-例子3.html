@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    var data = [];
+    for(let i = 0; i < 3; i++){
+      data[i] = function(){
+        console.log(i);
+      };
+    }
+    data[0]();
+    data[1]();
+    data[2]();
+    
+    /*
+    输出
+    0
+    1
+    2
+
+    说明: let具有块级作用域,形成的3私有作用域都是互不干扰的.
+    */
+    </script>
+  </body>
+</html>

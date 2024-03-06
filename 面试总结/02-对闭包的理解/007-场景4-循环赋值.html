@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    for(var i = 0; i < 3; i++){
+      (function(j){
+        setTimeout(function(){
+          console.log(j);
+        }, 1000)
+      })(i)
+    }
+    /*
+    输出
+      0
+      1
+      2
+    */
+    </script>
+  </body>
+</html>
