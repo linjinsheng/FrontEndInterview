@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    const search = (id) => {
+      const goodList = [
+      {
+            id: 1,
+            name: 'A'
+        },
+        {
+            id: 2,
+            name: 'B'
+        }
+      ]
+      return ()=>{
+        const goods = goodList.find((item) => item.id == id);
+        if(goods){
+          console.log(`本地缓存`);
+          console.log(`商品名称是: ${goods.name}`)
+        }else{
+          // 假设如果没有在goodsList找到该商品，就去调接口在数据库查询
+          console.log('调用接口啦!')
+          const goods = {id: 3, name: 'c'};
+          //  拿到商品后添加到goodList
+          goodList.push(goods);
+          console.log(`商品名称是：${goods.name}`)
+        }
+      }
+    }
+    const fn = search(3);
+    fn();
+    fn();
+    fn();
+    </script>
+  </body>
+</html>
