@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+在Vue中用到闭包的地方 
+1、data(){ return {} }
+    在Vue的组件定义中,会用到一个data函数返回一个对象，这个函数就是一个闭包，
+    在组件实例化的过程中，每个实例都会得到一个独立的数据对象。
+2、 底层响应式处理
+    在Vue中，会为每个组件创建一个Watcher对象来监听数据的变化，这个Watcher对象就是一个闭包，
+    它持有了组件实例、渲染函数以及需要监听的数据，从而实现了自动更新视图的功能。
+
+在React中用到闭包的地方
+1、useState和useEffect
+    在React中，由于函数组件没有自己的实例，所以在使用useState和useEffect等Hook时，
+    也会用到闭包的概念来保存组件内部的状态。
+2、底层响应式处理
+    在React中，也有类似的机制，即useEffect Hook，它会在组件渲染时执行一个副作用函数，
+    并将这个数存储在组件实例中，以便在下次渲染时比较前后两个副作用函数是否相同，
+    从而决定是否执行它们。这个过程中也会用到闭包的概念。
+*/
+    </script>
+  </body>
+</html>
