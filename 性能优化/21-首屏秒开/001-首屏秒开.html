@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      首屏秒开
+      一、懒加载(路由、数据、图片)
+      路由: 懒加载
+      数据: 计算首屏的viewport,例如说打开页面加载4条数据
+      图片:url引入外部图片
+
+      二、缓存(针对静态资源)
+      经常变化的:采用协商缓存(Etag/last-modified),或发送请求拉去新的资源
+      不变的: 采用强制缓存(cache-control:max-age秒)
+
+      三、离线化: 线上实时变动的资源,静态到本地
+      使用的配置prerender-spa-plugin,当于预加载
+      在vue.config中配置prerenderSpaPlugin插件
+
+      四、白屏
+      可对dns实行自动解析
+      采用<metahttp-equiv="x-dns-prefetch-control"content="on">,可有效缩短DNS的解析时间,大概200ms左右
+
+      五、卡顿
+      主要是由于执行阶段的DOM操作
+      1、创建一个文档片段documentFragment，在它上面应用所有DOM操作，
+         最后再把它添加到文档中,避免频繁操作DOM,减少重绘和回流
+      2、采用队列的思想,复杂功能拆分成细小的功能;
+
+      六、其他方式
+      1、采用webpack压缩css、js、html;
+      2、cdn加速;
+      3、loader用include来减少路径查询;
+      4、采用tree、shaking来去除冗余代码
+      5、服务器端开启gzip压缩来最大化减少所有文件体积
+     */
+    </script>
+  </body>
+</html>

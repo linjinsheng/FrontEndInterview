@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      应用: 闭包可以封装一段代码
+     */
+    // 立即执行函数
+    let xz = (function(){
+      let a = 10;
+      let b = 20;
+      function add(){
+        return a + b;
+      }
+      function sub(){
+        return a - b;
+      }
+      return {
+        add,
+        sub
+      }
+    })()
+    let result1 = xz.add();
+    let result2 = xz.sub();
+    console.log(result1);
+    console.log(result2);
+    </script>
+  </body>
+</html>

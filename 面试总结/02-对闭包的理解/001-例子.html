@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+     闭包: 函数嵌套函数,内部函数就是闭包
+     正常情况下,函数执行完成,内部变量会销毁(释放内存空间)
+     闭包,内部函数没有执行完成,外部函数变量不会被销毁
+     */
+    function outerFun(){
+      let a = 10;
+      function innerFun(){
+        console.log(a);
+      }
+      return innerFun;
+    }
+    let fun = outerFun();
+    fun();         //  返回10
+    </script>
+  </body>
+</html>

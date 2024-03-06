@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    var data = [];
+    for(var i = 0; i < 3; i++){
+      data[i] = function(){
+        console.log(i);
+      };
+    }
+    data[0]();
+    data[1]();
+    data[2]();
+    
+    /*
+    输出
+    3
+    3
+    3
+    */
+    </script>
+  </body>
+</html>

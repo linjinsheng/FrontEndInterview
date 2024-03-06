@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    //  直接return
+    function fn1(){
+      let num = 1;
+      return num++;
+    }   
+    console.log(fn1());     // 1
+    console.log(fn1());     // 1
+    console.log(fn1());     // 1
+    
+    console.log('*******************************')
+
+    //  子函数
+    function fn2(){
+      let num = 1;
+      function fn3(){
+        console.log(num++);
+      }
+      fn3();
+    }
+    fn2();   
+    fn2(); 
+    fn2();
+
+    console.log('*******************************')
+    // 闭包
+    function fn4(){
+      let num = 1;
+      function fn5(){
+        console.log(num++);
+      }
+      return fn5;
+    } 
+    const fn6 = fn4();
+    fn6();
+    fn6();
+    fn6();
+
+    /* 
+      使用闭包，会让局部变量类似于全局变量，具有持久性。所以闭包既可以解决使用全局变量可能会带来的变量污染问题，
+      又可以解决使用局部变量用完后会被垃圾回收掉的问题
+    */
+    </script>
+  </body>
+</html>

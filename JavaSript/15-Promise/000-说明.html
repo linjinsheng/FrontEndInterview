@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /**
+      一、概念
+      一个对象,获取异步操作的消息,避免地狱回调,提供统一的API;
+      一个容器,保存着未来才会结束的事件Rejected的结果
+
+      二、三个状态
+      Pending(进行中)、Resolved(已完成)、Rejected(已拒绝)
+
+      3、两个过程
+      pending--->fulfilled: Resolved(已完成)
+      pending--->rejected: Rejected(已拒绝)
+
+      4、特点
+      对象的状态不收外界影响;
+      一旦状态改变就不会在变,任何时候都可以得到结果;
+
+      5、缺点
+      无法取消Promise,无法中途取消;
+      如果不设置回调函数,Promise内部抛出的错误,不会反应到外部;
+      当处于pending状态,无法得知目前进展到哪个阶段;
+
+      6、基本用法
+      then()
+      catch()
+      all()
+      race()
+      finally()
+
+      7、解决问题
+      代码简洁直观
+      解决了地狱回调的问题
+
+      8、Promise.all
+      成功的时候返回的是一个结果数组;
+      失败的时候,返回的是最先被reject失败状态的值;
+      应用场景: 当遇到发送多个请求顺序获取和使用数据的场景
+
+      9、Promise.race
+      Promise.race([p1, p2, p3])里面哪个结果获得快,就返回哪个结果,不管是成功状态还是失败状态
+     */
+
+    </script>
+  </body>
+</html>

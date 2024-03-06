@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    var promise = new Promise(function (resolve, reject) {
+        var a = 1
+        if (a === 1) {
+            resolve(a)
+        } else {
+            reject(error)
+        }
+    })
+    promise.then(function (value) {
+        console.log(value++)
+        return value
+    }).catch(function (error) {
+        console.log(error)
+    }).then(function (value) {
+        console.log(value++)
+    })
+
+    // 输出：
+    // 1
+    // 2
+    </script>
+  </body>
+</html>

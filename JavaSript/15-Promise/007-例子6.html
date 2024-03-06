@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    let p = new Promise((resolve,reject) => {
+        setTimeout(() => {
+            reject('error');
+        },1000);
+    });
+
+    async function demo(params) {
+        try {
+            let result = await p;
+        }catch(e) {
+          console.log(e);
+        }
+    }
+
+    demo();
+    </script>
+  </body>
+</html>

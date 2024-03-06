@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    setTimeout(function(param){
+      console.log('param---', param)   // param--- undefined
+    }, 1000)
+
+    function func(param){
+      console.log('外面----', param);   // 外面---- 168
+      return function(...args){
+        console.log('args', ...args)
+        console.log('里面----', param); // 里面---- 168
+      }
+    }
+
+    var f1 = func(168);
+    setTimeout(f1, 3000);
+    </script>
+  </body>
+</html>

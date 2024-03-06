@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>单例模式</title>
+  </head>
+  <body>
+    <button id="loginBtn">登录</button>
+    <script>
+    console.log('*******************************')
+    //  js的单例模式,实现登录
+    var createLogin = function(a, b, c){
+      console.log('参数----', a, b, c);
+      var div = document.createElement("div")
+      div.innerHTML = "我是登录的弹窗"
+      div.style.display = 'none'
+      document.body.appendChild(div);
+      return div;
+    }
+
+    var getSingle = function (fn) {
+      console.log('扩展运算----');
+      var result;
+      return function () {
+        console.log('arguments---',arguments);
+        return result || (result = fn.apply(this, arguments))
+      }
+    }
+
+    var create = getSingle(createLogin)
+    document.getElementById("loginBtn").onclick = function(){
+      var loginLay = create(1, 2, 3)
+      loginLay.style.display = 'block'
+    }
+
+    for(var i = 0; i < 4; i++){
+        console.log('i----',i);
+    }
+    console.log('外面----',i);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    //  Promise是一个容器,用来保存某个未来才会结束的事件的结果
+    let p = new Promise((resolve,reject) => {
+          resolve('success')
+    })
+          
+    p.then(result => {
+          console.log(result);            //success
+    });
+
+    </script>
+  </body>
+</html>
