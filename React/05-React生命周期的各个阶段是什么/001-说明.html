@@ -29,6 +29,12 @@
     三、Unmounting(卸载)：已移出真实 DOM
     componentWillUnmount(): 在组件卸载及销毁之前直接调用。
 
+    父子组件生命周期
+    挂载:
+    父组件componentWillMount => 父组件render => 子组件componentWillMount 
+    => 子组件render => 子组件componentDidMount => 父组件componentDidMount
+    销毁:
+    父组件componentWillUnmount => 子组件componentWillUnmount
     */
     </script>
   </body>

@@ -39,6 +39,26 @@
       即可优化整个页面的交互fallback 属性接受任何在组件加载过程中你想展示的 React 元素。你可以将 Suspense 
       组件置于懒加载组件之上的任何位置。你甚至可以用一个 Suspense 组件包裹多个懒加载组件。
      */
+
+      /*
+      import {BroeserRouter as Router, Route, Switch} from 'react-router-dom'
+      import React, { Suspense, lazy} from 'react';
+
+      const Home = lazy(() => import('./routes/Home'));
+      const About = lazy(() => import('./routes/About'));
+
+      const App = () => (
+        <Router>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/about" component={About}/>
+            </Switch> 
+          </Suspense>
+        </Router>
+      )
+      */
+
     </script>
   </body>
 </html>

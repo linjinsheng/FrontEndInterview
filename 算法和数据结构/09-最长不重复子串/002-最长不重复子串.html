@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//最长不重复子串 
+var str = "abcabcbb"
+function lengthOfLongestSubstring(str) {
+    let map = new Map();
+    if(str.length <= 1)return n;
+    let start = 0;
+    let res = 0;
+    for(let end = 0; end < str.length; end++) {
+        if(map.has(str[end])) {
+            start =Math.max(start, map.get(str[end])+ 1);
+        }
+        map.set(str[end], end);
+        res = Math.max(res, end - start + 1);
+    }
+    return res;
+};
+console.log(lengthOfLongestSubstring(str));
+</script>   
+</body>
+</html>
