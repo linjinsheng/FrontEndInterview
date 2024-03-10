@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+    console.log('*******************************')
+    /**
+     https://www.bilibili.com/video/BV1Q54y1Z7bg/?spm_id_from=333.337.search-card.all.click&vd_source=7f0b239b468644acab41441987770602
+      Redux是一个状态管理库/状态容器
+      工作流程
+      1、组件通过dispatch方法触发Action(type+payload加载);
+      2、Store接受Action并将Action分发给Reducer;
+      3、Reducer根据Action类型对状态进行更改,并将更改后的状态返回给Store;
+      4、组件订阅了Store中的状态,Store中的状态更新会同步到组件;
+
+      React-redux核心概念
+      connect(mapStateToProps, mapDisPatchToProps)(Component)
+      connect方法接受两个参数,返回一个高阶组件
+      connect方法的第一个参数是mapStateToProp方法,将store中的state传递到组件的props中;
+      connect方法的第二个参数是mapDispatchToProps方法,将store中的dispatch传递到组件的props中;
+      connect方法还可以帮我们订阅store,当store中状态发生变更的时候,帮助我们重新渲染组件.
+      
+      中间件: 扩展和增强redux应用程序,常用的有redux-thunk、redux-saga、redux-actions
+     */
+    </script>
+  </body>
+</html>
