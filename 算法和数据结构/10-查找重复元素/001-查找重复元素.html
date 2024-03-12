@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 重复出现的元素
+function findRepeatArr(arr){
+    const len = arr.length;
+    const hash = new Map();
+    for(let i = 0; i < len; i++){
+        if(!hash.has(arr[i])){
+            hash.set(arr[i], 1);
+        }else{
+            let count = hash.get(arr[i]);
+            count++;
+            hash.set(arr[i], count)
+        }
+    }
+    //  找出重复出现的元素并返回
+    const res = [];
+    for(let key of hash.keys()){
+        if(hash.get(key) !== 1){
+            res.push(key);
+        }
+    }
+    return res;
+}
+var arr = [1,2,3,4,5,3,4,5];
+var arr1 = findRepeatArr(arr);
+console.log("重复出现的元素:", arr1);
+</script>   
+</body>
+</html>
