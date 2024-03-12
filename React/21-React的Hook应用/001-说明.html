@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*************React生命周期三个阶段******************')  
+    /*
+    https://juejin.cn/post/7249288803533520957#heading-5
+    什么是React Hooks
+    React Hooks是 React 16.8新增的一种特性，
+    1、在函数式组件中使用state、生命周期、context等React特性。
+    2、将复杂的逻辑拆分成多个独立可重用的函数，并且使得这些函数更加易于理解和测试。
+    
+    Class组件存在的问题
+    1、复杂度高;
+    2、嵌套层数过多;
+    3、对功能模块封装比较困难;
+    4、不利于优化;
+
+    React Hooks的优势?
+    1、更简单的实现代码复用;
+    2、使代码逻辑更清晰;
+    3、便于大规模开发与测试;
+    4、更加灵活和自由;
+    
+    1、useState
+    作用: 在函数式组件中管理状态
+    语法: const [state, setState] = useState(initialState);
+    state:    表示当前的状态值。
+    setState: 是一个更新state值的函数,调用该函数会重新渲染组件并更新状态;
+
+
+    2、useEffect
+    作用: 在函数式组件中执行副作用操作（例如：从服务器获取数据、手动更新 DOM 等）
+    useEffect(effect, dependencies);
+    effect：      表示要执行的副作用函数。
+    dependencies：表示useEffect需要监测变化的依赖项数组。
+
+    3、useContext
+    作用: 在组件树中跨层级传递数据，避免了繁琐的props传递;
+    1、创建一个 Context 对象来存储要共享的数据;
+    2、在父组件中设置共享数据，并将其作为value属性传递给Context.Provider组件;
+    3、在子组件中使用useContext Hook来获取共享数据并进行展示;
+
+    4、useReducer
+    作用: 帮助我们使用reducer函数管理复杂的组件状态
+    1、定义一个 reducer 函数来管理组件状态
+    2、在父组件中使用useReducer Hook来初始化和获取共享数据以及dispatch方法;
+    3、在返回的 JSX 中展示当前计数器的值并添加增加/减少按钮来触发对应操作即可。
+    
+    5、useCallback
+    作用: 帮助我们优化性能并避免不必要的重新渲染。
+    我们使用了useCallback来缓存 handleClick方法并根据需要更新它。
+    这样，在组件重新渲染时就不会创建新的实例，从而避免了性能问题。
+
+    6、useMemo
+    作用: 帮助我们优化性能并避免不必要的重新计算
+
+    7、useRef
+    作用: 帮助我们在函数组件中保存可变值，并且不会导致组件重新渲染。
+    */
+    </script>
+  </body>
+</html>
