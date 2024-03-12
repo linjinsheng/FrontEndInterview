@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// 循环去重
+function noRepeatArr(arr){
+    const len = arr.length;
+    const hash = new Map();
+    for(let i = 0; i < len; i++){
+        if(!hash.has(arr[i])){
+            hash.set(arr[i], 1);
+        }else{
+            let count = hash.get(arr[i]);
+            count++;
+            hash.set(arr[i], count)
+        }
+    }
+    const res = [];
+    for(let key of hash.keys()){
+        res.push(key);
+    }
+    return res;
+}
+var arr = [1,2,3,4,5,3,4,5];
+var arr1 = noRepeatArr(arr);
+console.log("hash去重:", arr1);
+</script>   
+</body>
+</html>

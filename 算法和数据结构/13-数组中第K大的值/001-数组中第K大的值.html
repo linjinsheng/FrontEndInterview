@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let findKthLargest = (nums, k) => {
+    let stack = [];
+    for(let i = 0 ;i < nums.length; i++){
+        const n = nums[i];
+        const tmp = [];
+        while(stack.length && stack[stack.length - 1] < n){
+            tmp.push(stack.pop());
+        }
+        if(stack.length < k)stack.push(n);
+        while(tmp.length && stack.length < k){
+            stack.push(tmp.pop())
+        }
+    }
+    return stack[stack.length - 1];
+}
+
+const nums = [1, 2, 3, 3, 4, 4, 5];
+console.log("数组第K大的值为: ", findKthLargest(nums, 2));
+</script>   
+</body>
+</html>
