@@ -19,7 +19,7 @@
       vue3: setup函数
 
       3、双向数据绑定:使用proxy替换了defineProperty
-      vue2: Object defineProperty+发布定于模式实现的
+      vue2: Object defineProperty+订阅发布模式实现的
             缺点是:数组和新增加属性,代码需要额外开销;
       vue3: proxy代理整个对象(包括数组),进行响应式观测,数据发生变化,不需要额外开销,
             直接响应,vue3的响应式效率高
