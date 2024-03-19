@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div>一段文字</div>
+    <script>
+    console.log('*******************************')
+    /**
+       JS多线程
+       1、进程是资源(内存、CPU)分配的基本单元,它是程序执行的一个实例;
+       2、线程是程序执行时的最小单位,它是进程的一个执行流,是CPU调度和分派的基本单位;
+       3、JS可以通过Web Worker实现多线程
+       A、创建了Web Worker的实例;
+       B、使用onmessage来监听Worker发送的消息;
+       C、使用worker.postMessage方法向Worker发送数据进行处理;
+
+       缺点
+       1、woeker进程内,全局对象不是window,而是self,this指向self;
+       2、不能使用dom,但是可以访问定时器和ajax;
+       3、不同浏览器对跨域限制不同,最好不要跨域;
+       4、子线程webkit不兼容,不建议使用
+      */
+
+    </script>
+  </body>
+</html>
