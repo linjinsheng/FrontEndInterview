@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div>一段文字</div>
+    <script>
+    console.log('*******************************')
+    /**
+        富文本编辑器的底层实现原理：
+        1. 内容编辑：富文本编辑器的核心功能就是内容编辑，它主要依赖于浏览器提供的可编辑区域contenteditable或者
+          设计模式document.designMode。这两个属性都能将普通的HTML元素转化为可编辑的内容。
+
+        2. 格式化：富文本编辑器可以对选中的文本进行各种格式化操作，比如加粗、倾斜、下划线、颜色、字体、大小等。
+          这主要依赖于document.execCommand这个方法，它可以执行各种预定义的命令。
+
+        3. 插入内容：富文本编辑器还可以插入各种内容，比如图片、表格、链接等。这也是通过document.execCommand方法实现的。
+
+        4. 撤销和重做：富文本编辑器还需要提供撤销和重做功能，这主要通过记录每一次的操作，然后在需要的时候进行回滚或者重播。
+
+        5. HTML和Markdown转换：富文本编辑器通常还需要提供HTML和Markdown之间的转换功能，这主要通过正则表达式或者解析器来实现。
+
+        6. 数据存储和读取：富文本编辑器还需要将编辑的内容存储起来，然后在需要的时候读取出来。
+          这通常通过localStorage或者服务器端存储来实现。
+
+        富文本原理实践与操作
+        https://juejin.cn/post/6844903871110709256#heading-15
+
+
+        利用 javascript 实现富文本编辑器
+        https://www.jianshu.com/p/5997a90aab64
+
+        *[js获取剪切板内容，js控制图片粘贴](https://segmentfault.com/a/1190000004288686)
+        *[iOS UIWebView 全属性详解](http://blog.csdn.net/ll845876425/article/details/51884736)
+
+      */
+
+    </script>
+  </body>
+</html>

@@ -22,6 +22,12 @@
     destroyed              所有监听器移除,所有实例销毁
     actived                keep-alive组件激活时使用
     deactived              keep-alive组件停用时使用
+
+    
+    挂载阶段：父beforecreate--->父created--->父beforemount--->子beforecreate
+            --->子created--->子beforemount-->子mounted-->父mounted
+    更新阶段：父beforeupdate--->子beforeupdate--->子updated--->子updated
+    销毁阶段：父beforedestory--->子beforedestroy--->子destroyed--->子destroyed
      */
     </script>
   </body>
