@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div>一段文字</div>
+    <script>
+    console.log('*******************************')
+    /**
+      https://juejin.cn/post/6844903871110709256#heading-15
+      
+      插入图片
+      图片除了可以通过添加地址的形式外，还可以添加 base64 格式的图片，这里我们通过 readAsDataURL(file) 来读取图片，
+      并执行 execCommand('insertImage', base64) 就大功告成啦，具体代码如下
+      insertImg(e) {
+          let reader = new FileReader();
+          let file = e.target.files[0];
+          reader.onload = () => {
+              let base64Img = reader.result;
+              this.execCommand('insertImage', base64Img);
+              document.querySelector('.nav__img input').value = ''; // 解决同一张图片上传无效的问题
+          };
+          reader.readAsDataURL(file);
+      }
+
+      富文本编辑图片拉伸
+        1、判断用户点击的是否是编辑区里面的图片
+        2、在点击的图片上创建个大小一样的div
+        3、在四个顶点框上添加拖拽事件
+        会在四个顶点监听mousedown事件，按下鼠标时，首先会改变鼠标样式（就是鼠标会变成调整大小的那种图标），
+        然后监听mousemove和mouseup事件，计算出水平拖拽距离，然后重新设置图片大小和浮层大小
+          handleMousedown(e) {
+              this.dragBox = e.target;
+              this.dragStartX = e.clientX;
+              this.preDragWidth = this.nowImg.width;
+              this.setCursor(this.dragBox.style.cursor);
+              document.addEventListener('mousemove', this.handleDrag);
+              document.addEventListener('mouseup', this.handleMouseup);
+          },
+
+          handleDrag(e) {
+              // 计算水平拖动距离
+              const deltaX = e.clientX - this.dragStartX;
+              // 修改图片大小
+              if (this.dragBox === this.boxes[0] || this.dragBox ===     this.boxes[3]) { // 左边的两个框
+                  this.nowImg.width = Math.round(this.preDragWidth - deltaX);
+              } else { // 右边的两个框
+                  this.nowImg.width = Math.round(this.preDragWidth + deltaX);
+              }
+              // 同时修改蒙层大小
+              this.repositionOverlay();
+          },
+          
+          handleMouseup() {
+              this.setCursor('');
+              // 拖拽结束移除事件监听
+              document.removeEventListener('mousemove', this.handleDrag);
+              document.removeEventListener('mouseup', this.handleMouseup);
+          },
+
+          setCursor(value) {
+              // 设置鼠标样式
+              [document.body, this.nowImg].forEach(el => {
+                  el.style.cursor = value;
+              });
+          }
+        
+        4、光标问题
+          光标应该也是一大坑，你可能不知道什么时候就失去焦点了，
+          此时再点击按钮执行命令就无效了；有时你又需要还原或设置光标的位置，比如插入图片后，光标要设置到图片后面等等之类的。
+        
+          我们需要具有控制光标的能力，具体操作就是在点击按钮之前我们可以先存储当前光标的状态，执行完命令或者在需要的时候后
+          再还原或设置光标的状态即可。由于在 chrome 中，失去焦点并不会清除Seleciton对象和Range对象.
+          function saveSelection() { // 保存当前Range对象
+              let selection = window.getSelection();
+              if(selection.rangeCount > 0){
+                      return sel.getRangeAt(0);
+              }
+              return null;
+          };
+          let selectedRange = saveSelection();
+          function restoreSelection() {   
+              let selection = window.getSelection();   
+              if (selectedRange) {   
+                  selection.removeAllRanges();  // 清空所有 Range 对象
+                  selection.addRange(selectedRange); // 恢复保存的 Range
+              }
+          }
+      */
+    </script>
+  </body>
+</html>

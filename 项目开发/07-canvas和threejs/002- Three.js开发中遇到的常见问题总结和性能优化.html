@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div>一段文字</div>
+    <script>
+    console.log('*******************************')
+    /**
+       https://blog.csdn.net/weixin_43835425/article/details/132665897
+       Three.js开发中遇到的常见问题总结和性能优化
+       
+       关于Three.js开发中遇到的一些问题总结
+       1、尝试将模型放大或缩小到原来的1000倍。许多模型的缩放比例各不相同,如果摄像机位于模型内，则大型模型将可能不会显示。
+          可以在模型加载完成之后根据模型比例大小设置合适的缩放值
+          
+          //设置模型位置
+          this.model.updateMatrixWorld()
+          const box = new THREE.Box3().setFromObject(this.model);
+          const size = box.getSize(new THREE.Vector3());
+          const center = box.getCenter(new THREE.Vector3());
+          // 计算缩放比例
+          const maxSize = Math.max(size.x, size.y, size.z);
+          const targetSize = 2.5; // 目标大小
+          const scale = targetSize / (maxSize > 1 ? maxSize : .5);
+          this.model.scale.set(scale, scale, scale)
+            // 设置控制器最小缩放值
+          this.controls.maxDistance = size.length() * 10
+          // 设置相机位置
+          this.camera.position.set(0, 2, 6)
+          // 设置相机坐标系
+          this.camera.lookAt(center)
+          this.camera.updateProjectionMatrix();
+      
+      2、增加相机远端面的值far，如果在创建相机时摄像机视锥体远端面的值设置过小也无法将模型正确的显示出来
+          this.camera = new THREE.PerspectiveCamera(45, clientWidth / clientHeight, 0.25, 100)
+          this.camera.far = 2000
+          this.camera.updateProjectionMatrix()
+      
+      3、窗口大小改变场景画面像素变得模糊
+         在窗口监听方法中更新相机，渲染器等相关信息
+          window.addEventListener("resize", this.onWindowResize.bind(this))
+				  // 监听窗口变化
+          onWindowResize() {
+            const { clientHeight, clientWidth } = this.container
+            //调整屏幕大小
+            this.camera.aspect = clientWidth / clientHeight //摄像机宽高比例
+            this.camera.updateProjectionMatrix() //相机更新矩阵，将3d内容投射到2d面上转换
+            this.renderer.setSize(clientWidth, clientHeight)
+            this.effectComposer.setSize(clientWidth, clientHeight)
+            this.glowComposer.setSize(clientWidth, clientHeight)
+          }
+      
+        4、调整相机角度，模型的部分材质内容显示不完整或者不显示
+           将frustumCulled值设置为false不管是否在相机视椎体都会渲染
+           this.model.traverse(item => {
+              if (item.isMesh && item.material) {
+                  item.frustumCulled = false  
+              }
+            })
+
+       关于Three.js开发中性能优化
+       1、在页面关闭销毁和跳转离开时清除代码中定时器，事件监听和动画帧等相关方法。
+          释放场景中的材质内存，清除场景和模型相关信息;
+          // 清除模型数据
+          onClearModelData(){
+              cancelAnimationFrame(this.rotationAnimationFrame)
+              cancelAnimationFrame(this.renderAnimation)
+              cancelAnimationFrame(this.animationFrame)
+              this.container.removeEventListener('click', this.onMouseClickModel)
+              this.container.removeEventListener('mousedown', this.onMouseDownModel)
+              this.container.removeEventListener('mousemove', this.onMouseMoveModel)
+              window.removeEventListener("resize", this.onWindowResize)
+              // 材质释放内存
+              this.scene.traverse((v) => {
+                if (v.type === 'Mesh') {
+                  v.geometry.dispose();
+                  v.material.dispose();
+                  }
+              })
+              // 清除场景和模型相关信息
+              this.model.clear()
+              this.scene.clear()
+          }
+      */
+
+    </script>
+  </body>
+</html>
