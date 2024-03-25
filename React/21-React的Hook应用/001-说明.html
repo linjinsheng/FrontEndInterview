@@ -47,18 +47,18 @@
     2、在父组件中设置共享数据，并将其作为value属性传递给Context.Provider组件;
     3、在子组件中使用useContext Hook来获取共享数据并进行展示;
 
-    4、useReducer
+    4、useReducer(单个组件的数据状态管理)
     作用: 帮助我们使用reducer函数管理复杂的组件状态
     1、定义一个 reducer 函数来管理组件状态
     2、在父组件中使用useReducer Hook来初始化和获取共享数据以及dispatch方法;
     3、在返回的 JSX 中展示当前计数器的值并添加增加/减少按钮来触发对应操作即可。
     
-    5、useCallback
+    5、useCallback(缓存函数)
     作用: 帮助我们优化性能并避免不必要的重新渲染。
     我们使用了useCallback来缓存 handleClick方法并根据需要更新它。
     这样，在组件重新渲染时就不会创建新的实例，从而避免了性能问题。
 
-    6、useMemo
+    6、useMemo(缓存数据)
     作用: 帮助我们优化性能并避免不必要的重新计算
 
     7、useRef
