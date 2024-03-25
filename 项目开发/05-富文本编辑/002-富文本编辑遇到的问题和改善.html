@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div>一段文字</div>
+    <script>
+    console.log('*******************************')
+    /**
+      https://www.jianshu.com/p/5997a90aab64
+      近期项目中需要开发一个兼容PC和移动端的富文本编辑器，其中包含了一些特殊的定制功能.
+      介绍如何实现富文本编辑器，和解决一些不同浏览器和设备之间的bug。
+      
+      一、处理paste粘贴
+          在富文本编辑器中，粘贴效果默认采用如下规则：
+          1、如果是带有格式的文本，则保留格式(格式会被转换成html标签的形式)
+          2、粘贴图文混排的内容，图片可以显示，src为图片真实地址。
+          3、通过复制图片来进行粘贴的时候，不能粘入内容
+          4、粘贴其他格式内容，不能粘入内容
+
+          为了能够控制粘贴的内容，我们监听paste事件。该事件的event对象中会包含一个clipboardData剪切板对象。
+          我们可以利用该对象的getData 方法来获得带有格式和不带格式的内容，如下。
+          let plainText  =  event.clipboardData.getData('text/plain');  // 无格式文本
+          let plainHTML  =  event.clipboardData.getData('text/html');   // 有格式文本
+          
+          之后调用 document.execCommand('insertText', false, plainText); 
+          或document.execCommand('insertHTML', false, plainHTML; 来重写编辑上的paste效果。
+
+          对于规则3,上述方案就无法处理了。这里我们要引入event.clipboardData.items。
+          这是一个数组包含了所有剪切板中的内容对象。
+
+          处理完图片，那么对于复制粘贴其他格式内容会怎么样呢？在mac中，如果你复制一个磁盘文件，
+          event.clipboardData.items 的长度为 2。 items[0] 依然为文件名，然而 items[1]则为图片，是文件的缩略图。
+      
+      二、输入法处理
+          比如百度输入法可以输入一张本地图片，为此我们需要监听输入法产生的内容做处理。
+          这里通过如下两个事件处理：
+          compositionstart: 当浏览器有非直接的文字输入时, compositionstart事件会以同步模式触发;
+          compositionend: 当浏览器是直接的文字输入时, compositionend会以同步模式触发;
+
+      三、适配移动端
+          1、自动获取焦点
+            如果想让我们的编辑器自动获得焦点，弹出软键盘，可以利用focus()方法。然而在ios下不可以。这主要是因为 ios safari中，
+            为了安全考虑不允许代码获得焦点。只能通过用户交互点击才可以。
+            [self.appWebView setKeyboardDisplayRequiresUserAction:NO]
+
+          2、iOS下回车换行，滚动条不会自动滚动
+            在iOS下，当我们回车换行的时候，滚动条并不会随着滚动下去。这样光标就可能被键盘挡住，体验不好。
+            为了解决这一问题，我们就需要监听selectionchange事件，触发时，计算每次光标编辑器顶端距离，之后再调用 
+            window.scroll() 即可解决.
+            问题在于我们要如何计算当前光标的位置;
+            我们可以通过创建一个临时元素查到光标位置，计算元素的位置即可。
+
+            function  getCaretYPosition()  {
+              let sel  =  window.getSelection(),
+              range  =  sel.getRangeAt(0);
+              let span  =  document.createElement('span');
+              range.collapse(false);
+              range.insertNode(span);
+              var  topPosition  =  span.offsetTop;
+              span.parentNode.removeChild(span);
+              return  topPosition;
+            }
+
+            3、键盘弹起遮挡输入部分
+            让iOS同学在键盘弹出的时候，将webview高度减去软键盘高度就解决
+            CGFloat webviewY  =  64.0  +  self.noteSourceView.height;
+            self.appWebView.frame  =  CGRectMake(0,  webviewY,  
+                                      BDScreenWidth,  BDScreenHeight  -  webviewY  -  height);
+
+            4、插入图片失败
+              在移动端，通过调用 jsbridge 来唤起相册选择图片。
+              之后调用insertImage函数来向编辑器插入图片。然而，插入图片一直失败。最后发现是因为早safari下，如果编辑器失去了焦点，
+              那么selection和range对象将销毁。因此调用 insertImage时，并不能获得光标所在位置，因此失败。
+              为此需要增加，backupRange()和restoreRange()函数。当页面失去焦点的时候记录range信息，插入图片前恢复range信息。
+              backupRange()  {
+                  let selection  =  window.getSelection();
+                  let range  =  selection.getRangeAt(0);
+                  this.currentSelection  =  {
+                      "startContainer":  range.startContainer,
+                      "startOffset":  range.startOffset,
+                      "endContainer":  range.endContainer,
+                      "endOffset":  range.endOffset
+                  }
+              }
+
+              restoreRange()  {
+                  if  (this.currentSelection)  {
+                      let selection  =  window.getSelection();
+                      selection.removeAllRanges();
+                      let range  =  document.createRange();
+                      range.setStart(this.currentSelection.startContainer,  this.currentSelection.startOffset);
+                      range.setEnd(this.currentSelection.endContainer,  this.currentSelection.endOffset);
+                      // 向选区中添加一个区域
+                      selection.addRange(range);
+                  }
+              }
+      */
+
+    </script>
+  </body>
+</html>

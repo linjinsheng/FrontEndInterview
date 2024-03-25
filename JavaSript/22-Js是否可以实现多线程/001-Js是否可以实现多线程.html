@@ -17,7 +17,7 @@
        C、使用worker.postMessage方法向Worker发送数据进行处理;
 
        缺点
-       1、woeker进程内,全局对象不是window,而是self,this指向self;
+       1、worker进程内,全局对象不是window,而是self,this指向self;
        2、不能使用dom,但是可以访问定时器和ajax;
        3、不同浏览器对跨域限制不同,最好不要跨域;
        4、子线程webkit不兼容,不建议使用

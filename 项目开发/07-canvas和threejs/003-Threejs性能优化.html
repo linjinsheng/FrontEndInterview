@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div>一段文字</div>
+    <script>
+    console.log('*******************************')
+    /**
+
+      一、性能瓶颈：
+        1、优化几何体（Geometry）：复用几何体，减少内存使用。
+        2、使用缓存合并（BufferGeometry）：合并多个几何体到一个缓存中。
+        3、减少复杂度：简化几何体，减少顶点数。
+        4、使用LOD（级别细节）技术：根据距离显示不同复杂度的物体。
+        5、开启GPU加速（canvasRenderer.domElement.addEventListener('webglcontextlost', function () {})）。
+
+      二、动画不流畅：
+        1、减少每帧的更新次数。
+          使用requestAnimationFrame代替setTimeout或setInterval。
+        2、对于相机和光源，使用controls.update()更新控制器，而不是直接设置属性。
+
+      三、场景管理困难：
+        1、使用场景图（Scene Graph）管理：创建一个有层次的对象结构。
+        2、使用模型分割（Model splitting）：将大型复杂模型拆分成多个小模型。
+        3、使用地形优化（Terrain optimization）：对地形进行优化，减少多边形数量。
+
+    四、性能优化技巧：
+        1、开启ShadowMap软阴影：renderer.shadowMap.enabled = true;。
+        2、减少阴影投射面积：调整光源和接收阴影的物体的阴影投射距离和大小。
+        3、使用纹理压缩（.format = THREE.RGBFormat;）和MipMap。
+        4、使用环境光照（CubeTexture）作为背景。
+
+    综上所述，对于Three.js开发中的性能优化，关键是合理使用几何体缓存、减少多边形数量、开启GPU加速、优化动画帧率，
+    以及合理处理场景管理。同时，考虑使用各种性能优化技巧，如阴影映射的优化等。 
+      */
+
+      /*
+          https://zhuanlan.zhihu.com/p/453212812?utm_id=0  
+          模型优化
+          1、合并几何体
+          2、减少几何体面数
+
+          代码优化
+          1、使用WebGL渲染模式
+          2、批量渲染
+          3、使用LOD（细节层次）
+          4、渲染模糊处理【像素比】
+          5、屏幕适配
+          6、画布样式常见优化
+          threeJS画布去除边框和轮廓
+          删除任何滚动
+          7、全屏处理
+      */
+
+
+      /**
+      Three 之 three.js （webgl）性能优化、提高帧率的思路/方向整理
+      https://blog.csdn.net/u014361280/article/details/124285654
+      */
+
+    </script>
+  </body>
+</html>
