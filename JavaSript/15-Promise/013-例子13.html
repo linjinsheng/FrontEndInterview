@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    async function testAsy(){
+      return 'hello world!'
+    }
+    let result = testAsy();
+    console.log(result);  // Promise {<fulfilled>: 'hello world!'}
+    result.then(v=>{
+      console.log(v);     // hello world!
+    })
+    </script>
+  </body>
+</html>
