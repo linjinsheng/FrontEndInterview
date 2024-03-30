@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    /*
+      https://www.cnblogs.com/yingzi1028/p/16665766.html
+      
+      一、什么是跨域
+      当一个请求url的协议、域名、端口三者之间任意一个与当前页面url不同即为跨域;
+      跨域指的是浏览器不能执行其他网站的脚本.
+      注意: 跨域并不是请求发不出去,请求能发出去,服务端能收到并正常返回结果,只是结果被浏览器拦截了,
+      之所以会跨域,是因为收到了同源策略的限制,同源策略要求源相同才能正常进行通信,即协议、域名、端口必须完全一致;
+
+      二、什么是同源策略
+      协议、域名和端口,三个条件都满足的时候.称之为同源策略;
+      同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互,这是一个用于隔离潜在恶意文件的关键的
+      安全机制.可以保护用户隐私信息,防止身份伪造.
+      同源策略限制行为:
+      1. 当前域下的js脚本不能够访问其他域下的cookie、localStorage和indexDB; 
+      2. 当前域下js脚本不能够操作访问其他域下的DOM;
+      3. 当前域下ajax无法发送跨域请求;
+
+      三、跨域解决方法
+      1、Proxy代理
+      proxy通过服务端接口转发来实现对于跨域问题的问题,因为HTTP同源策略只在浏览器生效.
+      在vue.config.js中利用 WebpackDevServer 配置本地代理.
+
+      2、跨域资源共享CORS
+      Cross-Origin resource Sharing跨域资源共享,属于跨源AJAX请求的根本解决方法;
+      1)、普通跨域请求: 只需服务器端设置Access-Control-Allow-Origin
+      2)、带cookie跨域请求: 前后端都需要进行设置
+      前端设置根据xhr.withCredentials字段判断是否带有cookie
+
+      3、JSONP
+      JSONP是服务器端与客户端跨源通信的常用方法.最大特点就是简单适用,兼容性好,
+      缺点就是只支持get请求,不支持post请求
+      this.$http.jsonp('http://www.domain2.com:8080/login', {
+          params: {},
+          jsonp: 'handleCallback'
+      }).then((res) => {
+          console.log(res); 
+      })
+    */ 
+    </script>
+  </body>
+</html>
