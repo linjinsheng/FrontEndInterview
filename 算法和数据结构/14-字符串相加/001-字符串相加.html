@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+/**
+  1、num1和num2的长度都小于5100;
+  2、num1和num2都包含数字0-9
+  3、num1和num2都不包含任何前导0
+ */
+
+let addString = function(num1, num2){
+    let res = '';
+    let i1 = num1.length - 1;
+    let i2 = num2.length - 1;
+    let carry = 0;
+    while(i1 >= 0 || i2 >= 0){
+        const x = i1 >= 0 ? num1[i1] - '0' : 0;
+        const y = i2 >= 0 ? num2[i2] - '0' : 0;
+        const sum = x + y + carry;
+        res = res + sum % 10;
+        carry = Math.floor(sum/10);
+        i1--;
+        i2--;
+    }
+    if(carry)res = res + carry;
+    return res.split("").reverse().join("");
+}
+console.log("字符串相加的值为: ", addString('123', '456'));
+</script>   
+</body>
+</html>

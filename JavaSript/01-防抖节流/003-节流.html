@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>节流函数---滚动</title>
+  </head>
+  <style>
+    body{
+        height: 1900px;
+        width: auto;
+    }
+
+  </style>
+  <body>
+  <script>
+  function throttle(wait, callback){
+    let timer = null;
+    let previous = null;
+    return function(value){
+      if(Date.now()- previous > wait){
+        callback && callback(value);
+        clearTimeout(timer);
+        timer = null;
+        previous = Date.now();
+      } else if(!timer){
+        timer = setTimeout(()=>{
+          callback && callback(value);
+          timer = null;
+        }, wait)
+      }
+    }
+  }
+
+  function handle(){
+    console.log('执行了-----', Date.now());
+  }
+
+  let throttleHandle = throttle(1000, handle);
+  window.addEventListener('scroll', function(e){
+    throttleHandle();
+  })
+
+  </script>
+
+  </body>
+</html>

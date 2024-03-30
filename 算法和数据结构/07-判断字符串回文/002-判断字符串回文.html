@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+//回文 
+var str = "abca"
+function test(str){
+    let len = str.length;
+    if(len == 1)return true;
+    for(let i = 0, j = len - 1; i < j; i++, j--){
+        if(str.charAt(i) !== str.charAt(j)){
+            return false;
+        }
+    }
+    return true;
+}
+console.log(test(str))
+</script>   
+</body>
+</html>

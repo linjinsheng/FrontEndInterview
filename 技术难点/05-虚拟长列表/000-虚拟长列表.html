@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<style>
+.viewport{
+        width: 300px;
+        /* height: 400px;   */
+        background:red;
+        position: fixed;
+        left:50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        overflow-y: scroll;
+    }
+    .scrollbar{
+        height: 2000px;
+        float: left;
+        width:40px;
+        background: green;
+    }
+    .row{
+        height:20px;
+        float:left;
+        width:180px;
+    }
+</style>
+<div id="app">
+    <div class="viewport" ref="viewport" @scroll="onScroll">
+            <div class="scrollbar" ref="scrollbar"></div>
+            <div class="list" ref="list">
+                <!--多行数据遍历-->
+                <div class="row" :style="{height:rowHeight+'px'}" 
+                v-for="item in showlist"> 
+                    {{item}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data(){
+            return {
+                list:new Array(100000).fill(null).map((e,i)=>i+1),
+                start:0,
+                end:20,
+                viewCount:20,
+                rowHeight:20
+            }
+        },
+        mounted(){
+            //视口高度
+            this.$refs.viewport.style.height = (this.viewCount*this.rowHeight)+"px"
+            console.log('视口高度', (this.viewCount*this.rowHeight)+"px") 
+            //10万条数据高度
+            this.$refs.scrollbar.style.height = (this.list.length*this.rowHeight)+"px"
+            console.log('10万条数据高度',this.$refs.scrollbar.style.height)
+        },
+        computed:{
+            showlist(){
+                return this.list.slice(this.start,this.end)
+            }
+        },
+        methods:{
+            onScroll(){ //监听滚动时间 滚动上去的时候 重新计算开始和结束位置
+                // 6--25 
+                let scrollTop = this.$refs.viewport.scrollTop
+                console.log('滚上去的高度',scrollTop)
+                //通过滚上去的高度计算滚上去的行数
+                let scrollCount = Math.round(scrollTop/this.rowHeight)
+                console.log('滚上去的行数',scrollCount)
+                //list 中的数据 移动上去 scrollTop
+                this.$refs.list.style.transform = `translateY(${scrollTop}px)`
+                this.start = scrollCount
+                this.end = this.start + this.rowHeight
+            }
+        }
+    })
+</script>
+</body>
+</html>
