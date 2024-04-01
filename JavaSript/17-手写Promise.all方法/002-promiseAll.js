@@ -1,3 +1,13 @@
+/**
+  1、输入为Iterlator类型的参数,可以是Array、Map、Set、String,可能也得包括魔改的
+    Iterlator(Symbol.iterlator)之类;
+  2、若输入的可迭代数据不是Promise,则也需要原样输出;
+  3、返回一个Promise实例,可以调用then和catch方法;
+  4、输出在catch体现为保持原顺序的数组;
+  5、输出在catch体现为最早的reject返回值;
+  6、空Iterlator、resolve返回空数组
+ */
+
 function promiseAll(args){
   return new Promise((resolve, reject) => {
     const promiseResults = [];
