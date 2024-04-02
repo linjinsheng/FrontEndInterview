@@ -14,6 +14,7 @@ function useAxios(url){
         axios.get(url)
              .then(res => setData(res))
              .catch(err => setError(err))
+             .finally(() => setLoading(false))
     }, [url]);
     return [loading, data, error];
 }
