@@ -8,13 +8,12 @@ function useMousePosition(){
         function mouseMoveHandler(event){
             setX(event.clientX);
             setY(event.clientY);
-
-            //  绑定事件
-            document.body.addEventListener('mousemove', mouseMoveHandler);
-
-            //  解绑事件
-            return () => document.body.removeEventListener('mousemove', mouseMoveHandler);
         }
+        //  绑定事件
+        document.body.addEventListener('mousemove', mouseMoveHandler);
+
+        //  解绑事件
+        return () => document.body.removeEventListener('mousemove', mouseMoveHandler);
     }, []);
     return [x, y];
 }
