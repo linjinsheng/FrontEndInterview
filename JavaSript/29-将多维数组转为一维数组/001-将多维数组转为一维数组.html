@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>111</div>
+<script>
+// 将多维数组转为一维数组
+const arr = [1, [2, 3], [4, 5, [6, 7]]];
+
+// 方法一: 利用数组的 flat 方法,参数为 Infinity 时可将任意维数组变为一维
+const result_arr = arr.flat(2);
+console.log('result_arr----', result_arr);
+
+//  方法二：将数字变为字符串，没有限制类型可以这样操作
+let result_str1 = arr.join().split(',');
+let result_str2 = arr.toString().split(',');
+console.log('result_str1----', result_str1);
+console.log('result_str2----', result_str2);
+
+ // 方法三：利用数组的reduce和concat方法
+ function concatArr(array) {
+    var newArr = array.reduce((per, cur) => {
+      return per.concat(Array.isArray(cur) ? concatArr(cur) : cur);
+    }, []);
+    return newArr;
+  }
+  console.log(concatArr(arr));
+
+  // 法四：利用数组的 扩展运算符和concat方法，将二维数组变一维
+  var arr1 = [].concat(...[[1, 4, 5, 6], [8, 4, 7, 6], [1, 5, 10, 47]]);
+  console.log(arr1)
+
+</script>
+</body>
+</html>
+
