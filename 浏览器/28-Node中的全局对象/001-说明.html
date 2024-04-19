@@ -10,22 +10,24 @@
     <script>
     console.log('*******************************')
     /**
-      Node的Event Loop分为6个阶段
-      1、Timers(定时器阶段)
-      2、Pending callbacks: 执行推迟到下一个循环迭代的I/O回调.(待定回调)
-      3、Idle/Prepare: 仅供内部使用
-      4、Poll(轮询阶段)
-      5、Check(查询阶段)
-      6、Close Callbacks: 执行关闭回调
+      全局对象分为
+      1、真正的全局对象
+      2、模块级别的全局对象
 
-      微任务和宏任务在Node中执行顺序
-      Node10以前
-      1、执行完一个阶段的所有任务
-      2、执行完nextTick队列里面的内容
-      3、然后执行微任务队列的内容
+      真正的全局对象
+      1、class:buffer
+      2、process
+      3、console
+      4、clearInterval、setInterval
+      5、clearTimeout、setTimeout
+      6、global
 
-      Node11以后
-      和浏览器的行为统一了,都是每执行完成一个宏任务就执行完微任务队列.
+      模块级别的全局对象
+      1、__dirname
+      2、__filename
+      3、exports
+      4、module
+      5、require
      */
     </script>
   </body>
