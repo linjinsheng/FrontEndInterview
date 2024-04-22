@@ -4,7 +4,7 @@ var obj = {};
 var valueArr = [];
 var minArr = [];
 for(var i = 0; i < str.length; i++){
-    val = str.charAt(i);
+    val = str[i];
     if(val in obj){
         obj[val]++;
     }else{
