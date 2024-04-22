@@ -1,5 +1,5 @@
 var isValid = function(s){
-    if(s.length == 0)return false;
+    if(s.length % 2 === 1)return false;
     const stack = [];
     for(let i = 0; i < s.length; i++){
         const c = s[i];
