@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+  <body id="waterWrapper">
+    <canvas id="canvas"></canvas>
+  </body>
+    <script>
+      function drawWaterPrint(){
+        const canvas = document.getElementById('canvas');
+        const waterWrapper = document.getElementById('waterWrapper');
+        canvas.width = 200;
+        canvas.height = 200;
+        canvas.style.display = 'none';
+        const ctx = canvas.getContext('2d');
+        ctx.font = '16px Microsoft JhengHeil';
+        ctx.style = 'rgba(0, 0, 0 .3)';
+        ctx.rotate(-0.3);
+        ctx.fillText('字节跳动', canvas.width / 8, canvas.height / 4);
+        const img = canvas.toDataURL('image/png');
+        const style = `background-image:url(${img})`;
+        waterWrapper.setAttribute('style', style);
+      }
+      drawWaterPrint();
+      function callback(){
+        drawWaterPrint();
+      }
+      //  事件监听
+      const observer = new MutationObserver(callback);
+      const targetNode = waterWrapper;
+      const config = {attributes: true};
+      observer.observe(targetNode, config);
+    </script>
+</html>

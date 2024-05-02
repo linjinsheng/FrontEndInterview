@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    const arrayLike = {
+      0: 1,
+      1: 2,
+      length: 2,
+    };
+    const array1 = Array.prototype.slice.call(arrayLike);
+    console.log(array1); // [ 1, 2 ]
+    const array2 = Array.prototype.concat.apply([], arrayLike);
+    console.log(array2); // [ 1, 2 ]
+    </script>
+  </body>
+</html>

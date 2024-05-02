@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DEMO</title>
+  </head>
+  <body>
+    <div id="container"> 
+    </div>
+    
+    <script>
+    console.log('*******************************')
+    console.log([...document.body.childNodes]); // [div, script, script...]
+    // arguments
+    function argumentsTest() {
+      console.log([...arguments]); // [ 1, 2, 3 ]
+    }
+    argumentsTest(1, 2, 3);
+    </script>
+  </body>
+</html>

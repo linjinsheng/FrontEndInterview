@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let maxArea = function(height){
+    const n = height.length;
+    let left = 0;
+    let right = n - 1;
+    let res = 0;
+    while(left < right){
+        if(height[left] < height[right]){
+            res = Math.max(res, (right - left)*height[left]);
+            left++;
+        }else{
+            res = Math.max(res, (right - left)*height[right]);
+            right--;
+        }
+    }
+    return res;
+}
+console.log("盛最多水的容器为: ", maxArea([1,8,6,2,5,4,8,3,7]));
+console.log("盛最多水的容器为: ", maxArea([1,1]));
+</script>   
+</body>
+</html>

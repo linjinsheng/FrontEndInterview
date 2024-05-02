@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let longestCommonPrefix = function(strs){
+    if(strs.length == 0)return "";
+    let n = strs[0].length;
+    for(let i = 0; i < n; i++){
+        let c = strs[0].charAt(i);
+        for(let str of strs){
+            if(i >= str.length){
+                return str;
+            }
+            if(c != str.charAt(i)){
+                return str.substring(0, i);
+            }
+        }
+    }
+    return strs[0];
+}
+console.log("公共前缀为: ", longestCommonPrefix(["flower","flow","flight"]));
+</script>   
+</body>
+</html>
