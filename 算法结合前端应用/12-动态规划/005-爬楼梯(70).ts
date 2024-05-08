@@ -6,5 +6,5 @@ function climbStairs1(n: number) {
     }
     return dp[n];
 };
-let res11 = climbStairs1(2);
-console.log('res--', res11);
+let res1 = climbStairs1(2);
+console.log('res1--', res1);
